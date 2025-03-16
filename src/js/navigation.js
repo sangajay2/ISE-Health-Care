@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const products = ["Nitrile Gloves", "Latex Gloves", "Dental Floss", /* ...rest of products... */];
 
     // Fetch the exact categories from the JSON file
-    fetch('data/categories.json')
+    fetch('src/data/categories.json')
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
