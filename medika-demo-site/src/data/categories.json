@@ -1,0 +1,26 @@
+Sure, here's the contents for the file `/medika-demo-site/medika-demo-site/src/data/categories.json`:
+
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Medical Equipment"
+    },
+    {
+      "id": 2,
+      "name": "Surgical Instruments"
+    },
+    {
+      "id": 3,
+      "name": "Diagnostic Tools"
+    },
+    {
+      "id": 4,
+      "name": "Pharmaceuticals"
+    },
+    {
+      "id": 5,
+      "name": "Personal Protective Equipment"
+    }
+  ]
+}

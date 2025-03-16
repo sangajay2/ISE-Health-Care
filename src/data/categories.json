@@ -1,0 +1,97 @@
+[
+    {
+        "id": "1",
+        "name": "Diagnostics",
+        "image": "https://via.placeholder.com/200x200?text=Diagnostics",
+        "description": "Medical Diagnostic Equipment & Devices"
+    },
+    {
+        "id": "2",
+        "name": "Consumables",
+        "image": "https://via.placeholder.com/200x200?text=Consumables",
+        "description": "Medical Consumables & Disposables"
+    },
+    {
+        "id": "3",
+        "name": "Equipment",
+        "image": "https://via.placeholder.com/200x200?text=Equipment",
+        "description": "Hospital & Medical Equipment"
+    },
+    {
+        "id": "4",
+        "name": "Ophthalmology",
+        "image": "https://via.placeholder.com/200x200?text=Ophthalmology",
+        "description": "Eye Care Equipment & Supplies"
+    },
+    {
+        "id": "5",
+        "name": "Nephrology",
+        "image": "https://via.placeholder.com/200x200?text=Nephrology",
+        "description": "Kidney Care Equipment & Supplies"
+    },
+    {
+        "id": "6",
+        "name": "Physiotherapy",
+        "image": "https://via.placeholder.com/200x200?text=Physiotherapy",
+        "description": "Physical Therapy Equipment"
+    },
+    {
+        "id": "7",
+        "name": "Refurbished Devices",
+        "image": "https://via.placeholder.com/200x200?text=Refurbished",
+        "description": "Quality Refurbished Medical Equipment"
+    },
+    {
+        "id": "8",
+        "name": "Dental",
+        "image": "https://via.placeholder.com/200x200?text=Dental",
+        "description": "Dental Equipments Available at Medikabazaar",
+        "subcategories": [
+            {
+                "id": "endodontics",
+                "name": "Endodontics",
+                "description": "The dental specialty focusing on the diagnosis and treatment of dental pulp and surrounding tissues, commonly involving root canal therapy to save or repair damaged teeth."
+            },
+            {
+                "id": "restorative-materials",
+                "name": "Restorative Materials",
+                "description": "Dental materials used to restore the structure, function, and aesthetics of teeth, including fillings, crowns, and bridges."
+            },
+            {
+                "id": "dental-consumables",
+                "name": "Consumables",
+                "description": "Supplies regularly used in dental procedures, such as gloves, masks, bibs, and other disposable items essential for maintaining a sterile environment."
+            },
+            {
+                "id": "prosthodontics",
+                "name": "Prosthodontics",
+                "description": "The dental specialty involving the design, fabrication, and fitting of artificial replacements for missing teeth, including dentures, bridges, and dental implants."
+            },
+            {
+                "id": "orthodontics",
+                "name": "Orthodontics",
+                "description": "The specialty dealing with the diagnosis and correction of misalignments of teeth and jaws, often utilizing braces, aligners, and other orthodontic devices."
+            },
+            {
+                "id": "dental-equipment",
+                "name": "Dental Equipment",
+                "description": "Various instruments and machinery used in dental practices, including chairs, drills, X-ray machines, and other tools essential for diagnostic and treatment procedures."
+            },
+            {
+                "id": "periodontics",
+                "name": "Periodontics",
+                "description": "The dental specialty focused on the prevention, diagnosis, and treatment of diseases affecting the gums and supporting structures of the teeth."
+            },
+            {
+                "id": "dental-instruments",
+                "name": "Dental Instruments",
+                "description": "Tools used by dental professionals during examinations, surgeries, and procedures, ranging from diagnostic instruments to surgical implements."
+            },
+            {
+                "id": "trusted-names",
+                "name": "Trusted Names in Dental Care",
+                "description": "Reputable brands known for high-quality dental products. Brands include: 3M, Dentsply Sirona, Diadent, DenMax, and Mani, Inc."
+            }
+        ]
+    }
+]
