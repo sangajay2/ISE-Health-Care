@@ -31,18 +31,19 @@ nav ul#category-nav {
 }
 
 .hero {
-    text-align: center;
-    padding: 4rem 1rem;
-    background: rgba(0, 0, 0, 0.4);
+    background-color: grey; /* Solid grey background */
+    padding: 10px 0; /* Adjust padding so background fits the text */
+    margin-top: 0; /* No extra space between navbar and hero */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.hero h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
-
-.hero p {
-    font-size: 1.2rem;
+.hero h1, .hero p {
+    display: inline-block;  /* Shrink-wraps the text */
+    padding: 5px 10px;      /* Padding around text */
+    margin: 0;              /* Remove extra margins */
 }
 
 nav ul {
@@ -69,7 +70,7 @@ main {
     justify-content: center;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 0.125rem; /* Reduced from 2rem */
 }
 
 .category-card {
@@ -122,12 +123,12 @@ main {
     padding: 5px;
     background: #f5f5f5;
     border-radius: 3px;
-    margin-top: 10px;
+    margin-top: 1px; /* Reduced from 10px */
 }
 
 .breadcrumb {
     padding: 10px 0;
-    margin-bottom: 20px;
+    margin-bottom: 0.125rem; /* Reduced from 1rem */
 }
 
 .breadcrumb a {
@@ -201,7 +202,7 @@ main {
 
 .breadcrumb {
     font-size: 1.1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 0.125rem; /* Reduced from 2rem */
 }
 
 .product-section {
@@ -254,6 +255,48 @@ main {
     background: #2b3990;
     padding: 0.5rem 2rem;
     color: white;
+    margin-bottom: 0; /* Remove extra whitespace below the navbar */
+}
+
+/* NEW: Refined dropdown menu styling for Products */
+.dropdown {
+    position: absolute;
+    top: 100%;  /* directly below the navbar */
+    left: 0;
+    width: 100%;
+    background-color: #fff; /* white background */
+    display: none; /* hidden by default */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* structured 3-column grid */
+    gap: 1rem; /* even spacing */
+    padding: 1rem; /* inner spacing */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* subtle shadow */
+}
+
+.dropdown ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: contents;  /* allow li items to align as grid items */
+}
+
+.dropdown ul li {
+    padding: 0.5rem;
+    text-align: center;
+    transition: background-color 0.2s;
+}
+
+.dropdown ul li:hover {
+    background-color: #f0f0f0;  /* hover effect */
+}
+
+.dropdown ul li a {
+    text-decoration: none;
+    color: #2b3990;
+    display: block;
+}
+.dropdown ul li a:hover {
+    background-color: #f5f5f5;
 }
 
 .navbar-left {

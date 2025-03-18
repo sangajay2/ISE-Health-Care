@@ -99,13 +99,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Fetch the exact categories from the JSON file
     fetch('src/data/categories.json')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
+        .then(response => { 
+            if (!response.ok) { throw new Error(`HTTP error! status: ${response.status}`); }
             return response.json();
         })
         .then(categories => {
+            // Define categories to remove from the heading navigation.
+            const removeCats = ["Diagnostics", "Consumables", "Equipment", "Ophthalmology", "Nephrology", "Physiotherapy", "Refurbished Devices", "Dental"];
+            
             const categoryNav = document.getElementById("category-nav");
             const categoryList = document.getElementById("category-list");
 
@@ -113,9 +114,9 @@ document.addEventListener("DOMContentLoaded", () => {
             categoryNav.innerHTML = '';
             categoryList.innerHTML = '';
 
-            // Render navigation and cards for each category
+            // Render navigation list items only for categories not in removeCats.
             categories.forEach(category => {
-                // For Diagnostics, override subcategories with custom list
+                // Override subcategories if needed (unchanged logic)
                 if(category.name === "Diagnostics"){
                     category.subcategories = customDiagnosticsSubcategories;
                 }
@@ -125,20 +126,22 @@ document.addEventListener("DOMContentLoaded", () => {
                 if(category.name === "Equipment"){
                     category.subcategories = customEquipmentSubcategories;
                 }
-                // Create navigation list item
-                const navItem = document.createElement("li");
-                navItem.textContent = category.name;
-                navItem.addEventListener("click", () => {
-                    if (category.subcategories) {
-                        showSubcategories(category);
-                    } else {
-                        // For main categories without subcategories, navigate to product page
-                        window.location.href = `product.html?section=main&item=${encodeURIComponent(category.name)}`;
-                    }
-                });
-                categoryNav.appendChild(navItem);
 
-                // Create category card
+                // Render header navigation IF category is not in removeCats.
+                if (!removeCats.includes(category.name)) {
+                    const navItem = document.createElement("li");
+                    navItem.textContent = category.name;
+                    navItem.addEventListener("click", () => {
+                        if (category.subcategories) {
+                            showSubcategories(category);
+                        } else {
+                            window.location.href = `product.html?section=main&item=${encodeURIComponent(category.name)}`;
+                        }
+                    });
+                    categoryNav.appendChild(navItem);
+                }
+
+                // Render category cards for all categories.
                 const categoryCard = document.createElement("div");
                 categoryCard.className = "category-card";
                 categoryCard.innerHTML = `
@@ -151,7 +154,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     if (category.subcategories) {
                         showSubcategories(category);
                     } else {
-                        // For main categories without subcategories, navigate to product page
                         window.location.href = `product.html?section=main&item=${encodeURIComponent(category.name)}`;
                     }
                 });
@@ -377,5 +379,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.querySelector('.cart-icon').addEventListener('click', () => {
         alert('Cart button clicked!');
+    });
+
+    // At the end of the file, update event listeners for the new navbar links
+    document.getElementById("home-link").addEventListener("click", (e) => {
+        e.preventDefault();
+        window.location.href = "index.html";
+    });
+
+    // Toggle the "Products" dropdown instead of scrolling
+    document.getElementById("products-link").addEventListener("click", (e) => {
+        e.preventDefault();
+        const dropdown = document.getElementById("products-dropdown");
+        if (dropdown.style.display === "none" || dropdown.style.display === "") {
+            dropdown.style.display = "block";
+        } else {
+            dropdown.style.display = "none";
+        }
+    });
+
+    document.getElementById("pricing-link").addEventListener("click", (e) => {
+        e.preventDefault();
+        alert("Pricing details coming soon!");
+    });
+
+    document.getElementById("contact-link").addEventListener("click", (e) => {
+        e.preventDefault();
+        alert("Contact us at: info@example.com");
     });
 });
