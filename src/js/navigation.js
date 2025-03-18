@@ -104,6 +104,37 @@ document.addEventListener("DOMContentLoaded", () => {
             return response.json();
         })
         .then(categories => {
+            categories.forEach(category => {
+                if (category.name === "Diagnostics") {
+                    // Override Diagnostics image with the new correct link
+                    category.image = "https://etimg.etb2bimg.com/photo/112526425.cms";
+                }
+                if (category.name === "Consumables") {
+                    category.image = "https://cdn-eplif.nitrocdn.com/wfvegrjPEPShEqEfUEqBAgAAxqbKSQLL/assets/images/optimized/rev-ffadd5f/wp-content/uploads/2022/10/Room-with-high-stock-levels-of-hospital-equipment.png";
+                }
+                if (category.name === "Equipment") {
+                    category.image = "https://alliedusa.net/wp-content/uploads/2022/06/Tips-for-Choosing-Medical-Equipment-For-Your-Practice.jpg.webp";
+                }
+                if (category.name === "Ophthalmology") {
+                    // Override Ophthalmology image with the provided link
+                    category.image = "https://cdn.castleconnolly.com/dims4/default/fec3343/2147483647/strip/true/crop/1000x563+0+0/resize/840x473!/quality/90/?url=http%3A%2F%2Fcastle-connolly-brightspot.s3.us-east-1.amazonaws.com%2Fe0%2F4e%2Fca13f3ee428b9805eeef5aef9540%2Fpillar-opthamology-01-1200x675.jpg";
+                }
+                if (category.name === "Physiotherapy") {
+                    // Override Physiotherapy image with the provided link
+                    category.image = "https://regencyhealthcare.in/wp-content/uploads/2018/06/How-physiotherapy-can-help-with-pain-relief-and-better-mobility-1-1200x800.png";
+                }
+                if (category.name === "Nephrology") {
+                    category.image = "https://www.omegahospitals.com/_next/image?url=https%3A%2F%2Fomegafilesstore.s3.ap-south-1.amazonaws.com%2Fwebsite%2Fspecializations%2Fnephrology.png&w=3840&q=75";
+                }
+                if (category.name === "Refurbished Devices") {
+                    // Updated Refurbished image with new link
+                    category.image = "https://meditechinsights.com/wp-content/uploads/2022/06/Refurbished-Medical-Equipment-Market-Website-New-e1655717061659.jpg";
+                }
+                if (category.name === "Dental") {
+                    category.image = "https://www.dentistshorsham.co.uk/wp-content/uploads/2021/10/dental-health-care-blog.jpg.webp";
+                }
+                // ...existing forEach code...
+            });
             // Define categories to remove from the heading navigation.
             const removeCats = ["Diagnostics", "Consumables", "Equipment", "Ophthalmology", "Nephrology", "Physiotherapy", "Refurbished Devices", "Dental"];
             
