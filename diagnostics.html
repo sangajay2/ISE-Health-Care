@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnostics - Medika Demo Shop</title>
+    <link rel="stylesheet" href="src/css/main.css">
+    <style>
+        .subcat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            padding: 1rem;
+        }
+        .subcat-card {
+            border: 1px solid #ddd;
+            padding: 1rem;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            background: #fff;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1rem;
+            padding: 1rem;
+        }
+        .product-item {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 0.5rem;
+            text-align: center;
+            background: #fff;
+        }
+        .product-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="main-nav">
+            <div class="logo">Medika Demo Shop</div>
+            <ul id="category-nav">
+                <!-- Categories will be dynamically loaded here -->
+            </ul>
+        </nav>
+        <div class="navbar">
+            <div class="navbar-left">
+                <a href="#" class="nav-link">All</a>
+                <a href="#" class="nav-link">Accessories</a>
+                <a href="#" class="nav-link">Equipment</a>
+                <a href="#" class="nav-link">Consumables</a>
+            </div>
+            <div class="navbar-right">
+                <button class="icon-button profile-icon" title="User Account">
+                    <img src="src/images/profile-icon.png" alt="Profile">
+                </button>
+                <button class="icon-button cart-icon" title="Shopping Cart">
+                    <img src="src/images/cart-icon.png" alt="Cart">
+                </button>
+            </div>
+        </div>
+        <div class="hero">
+            <h1>Welcome to Medika</h1>
+            <p>Your one-stop destination for Medical Equipment</p>
+        </div>
+    </header>
+    <main>
+        <section id="diagnostics-content">
+            <h1>Diagnostics</h1>
+            <!-- Display subcategories for Diagnostics -->
+            <div id="diagnostics-subcat">
+                <h2>Subcategories</h2>
+                <div class="subcat-grid" id="diagnostics-subcat-grid">
+                    <!-- Subcategory cards will be inserted here -->
+                </div>
+            </div>
+            <!-- Details section is hidden until a subcategory (Instrument) is selected -->
+            <div id="diagnostics-detail" style="display:none;">
+                <!-- Instrument details will be rendered here -->
+            </div>
+            <a href="index.html">Back to Home</a>
+        </section>
+    </main>
+    <script>
+        // Inline subcategories for Diagnostics (as provided)
+        const diagnosticsSubcategories = [
+            "Instrument",
+            "Biochemistry",
+            "Rapid Card",
+            "Phlebotomy",
+            "Diagnostic Test Kit",
+            "Equipment & Accessories"
+        ];
+        
+        const subcatGrid = document.getElementById('diagnostics-subcat-grid');
+        diagnosticsSubcategories.forEach(subcat => {
+            const card = document.createElement('div');
+            card.className = 'subcat-card';
+            card.textContent = subcat;
+            card.addEventListener('click', () => {
+                if(subcat === "Instrument") {
+                    renderInstrumentDetails();
+                } else {
+                    // For other subcategories, simply show a placeholder message.
+                    document.getElementById('diagnostics-detail').style.display = 'block';
+                    document.getElementById('diagnostics-detail').innerHTML = `<h2>${subcat}</h2><p>Details coming soon...</p>`;
+                }
+            });
+            subcatGrid.appendChild(card);
+        });
+        
+        // Function to render details for the Instrument subcategory
+        function renderInstrumentDetails() {
+            const detailDiv = document.getElementById('diagnostics-detail');
+            detailDiv.style.display = 'block';
+            detailDiv.innerHTML = `
+                <h2>Instrument - Explore by Type of Products</h2>
+                <div class="product-grid" id="type-products-grid"></div>
+                <h2>Instrument - Explore by Specialities</h2>
+                <div class="product-grid" id="specialities-grid"></div>
+            `;
+            
+            // Populate grid for "Explore by Type of Products"
+            const typeProducts = [
+                "Blood bank instrument",
+                "Glucometer Strip",
+                "Glucometer",
+                "ELISA plate",
+                "Haemoglobin Meter",
+                "POCT Analyser",
+                "Urine Analyzer",
+                "Monitor",
+                "Electrode",
+                "ELISA reader"
+            ];
+            const typeGrid = document.getElementById('type-products-grid');
+            typeProducts.forEach(prod => {
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'product-item';
+                // Wrap item in a link to a dedicated end page (product.html)
+                itemDiv.innerHTML = `
+                    <a href="product.html?section=diagnostics-type&item=${encodeURIComponent(prod)}">
+                        <img src="https://via.placeholder.com/150?text=${encodeURIComponent(prod)}" alt="${prod}">
+                        <p>${prod}</p>
+                    </a>
+                `;
+                typeGrid.appendChild(itemDiv);
+            });
+            
+            // Populate grid for "Explore by Specialities"
+            const specialities = [
+                "Transfusion medicine",
+                "Diagnostics",
+                "POCT",
+                "Biochemistry",
+                "Histopathology",
+                "Clinical Pathology",
+                "Hematology",
+                "General Hand Instruments and Hollowares",
+                "Immunology"
+            ];
+            const specGrid = document.getElementById('specialities-grid');
+            specialities.forEach(spec => {
+                const specDiv = document.createElement('div');
+                specDiv.className = 'product-item';
+                specDiv.innerHTML = `
+                    <a href="product.html?section=diagnostics-specialities&item=${encodeURIComponent(spec)}">
+                        <img src="https://via.placeholder.com/150?text=${encodeURIComponent(spec)}" alt="${spec}">
+                        <p>${spec}</p>
+                    </a>
+                `;
+                specGrid.appendChild(specDiv);
+            });
+        }
+    </script>
+</body>
+</html>

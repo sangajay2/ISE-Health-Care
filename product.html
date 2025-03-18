@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="src/css/main.css">
+    <style>
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1rem;
+            padding: 1rem;
+        }
+        .product-item {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 0.5rem;
+            text-align: center;
+            background: #fff;
+        }
+        .product-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="main-nav">
+            <div class="logo">Medika Demo Shop</div>
+            <!-- ...existing navbar... -->
+        </nav>
+    </header>
+    <main>
+        <section id="product-details">
+            <!-- Product details will be rendered here -->
+        </section>
+    </main>
+    <script>
+        // Read query parameters
+        const params = new URLSearchParams(window.location.search);
+        const section = params.get('section'); // e.g., brands, procedures, products
+        const item = params.get('item'); // e.g., "Denmax-ortho", "Restoration Carvers", etc.
+
+        const productDetails = document.getElementById('product-details');
+        
+        // Render header and grid container for multiple products
+        productDetails.innerHTML = `
+            <h1>${item}</h1>
+            <p>Category: ${section}</p>
+            <hr>
+            <div class="product-grid"></div>
+            <a href="index.html">Back to Home</a>
+        `;
+
+        const productGrid = document.querySelector('.product-grid');
+        
+        // Simulate multiple product items (for example, 6 items) for this brand/procedure/product
+        const numberOfProducts = 6;
+        let productsHTML = '';
+        for (let i = 1; i <= numberOfProducts; i++) {
+            const price = (Math.random() * 100 + 10).toFixed(2);
+            productsHTML += `
+                <div class="product-item">
+                    <img src="https://via.placeholder.com/150?text=${encodeURIComponent(item + ' ' + i)}" alt="${item} ${i}">
+                    <p>${item} ${i}</p>
+                    <p>$${price}</p>
+                </div>
+            `;
+        }
+        productGrid.innerHTML = productsHTML;
+    </script>
+</body>
+</html>

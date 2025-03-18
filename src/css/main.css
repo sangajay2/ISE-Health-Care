@@ -241,6 +241,55 @@ main {
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
+.product-sections {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #2b3990;
+    padding: 0.5rem 2rem;
+    color: white;
+}
+
+.navbar-left {
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: #f0a500;
+}
+
+.navbar-right {
+    display: flex;
+    gap: 1rem;
+}
+
+.icon-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.icon-button img {
+    width: 24px;
+    height: 24px;
+}
+
 @media (max-width: 768px) {
     #categories {
         flex-direction: column;
