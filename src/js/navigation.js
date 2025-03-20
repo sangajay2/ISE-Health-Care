@@ -132,6 +132,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
                 if (category.name === "Dental") {
                     category.image = "https://www.dentistshorsham.co.uk/wp-content/uploads/2021/10/dental-health-care-blog.jpg.webp";
+                    // Set only "Dental Equipments" as description
+                    category.description = "Dental Equipments";
                 }
                 // ...existing forEach code...
             });
