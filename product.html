@@ -41,12 +41,12 @@
     <script>
         // Read query parameters
         const params = new URLSearchParams(window.location.search);
-        const section = params.get('section'); // e.g., brands, procedures, products
-        const item = params.get('item'); // e.g., "Denmax-ortho", "Restoration Carvers", etc.
+        const section = params.get('section'); // e.g., brands, procedures, products, diagnostics-type, etc.
+        const item = params.get('item'); // e.g., one of the diagnostic product names
 
         const productDetails = document.getElementById('product-details');
         
-        // Render header and grid container for multiple products
+        // Render header and grid container for products
         productDetails.innerHTML = `
             <h1>${item}</h1>
             <p>Category: ${section}</p>
@@ -57,20 +57,48 @@
 
         const productGrid = document.querySelector('.product-grid');
         
-        // Simulate multiple product items (for example, 6 items) for this brand/procedure/product
-        const numberOfProducts = 6;
-        let productsHTML = '';
-        for (let i = 1; i <= numberOfProducts; i++) {
-            const price = (Math.random() * 100 + 10).toFixed(2);
-            productsHTML += `
-                <div class="product-item">
-                    <img src="https://via.placeholder.com/150?text=${encodeURIComponent(item + ' ' + i)}" alt="${item} ${i}">
-                    <p>${item} ${i}</p>
-                    <p>$${price}</p>
-                </div>
-            `;
+        if(section === "diagnostics-type") {
+            // Use new diagnostics products data with explicit image links and "Price not set"
+            const diagnosticsProducts = [
+                "Bioline Blood Collection Monitor",
+                "Bioline Bioline India Manual Tube Stripper",
+                "Maxsol Blood Tube Stripper",
+                "Bioline Agglutination Viewer"
+            ];
+            const diagnosticsImages = [
+                "https://ik.imagekit.io/z6mqjyyzz/media/public/bioline-blood-collection-monitor-box-of-1-unit-bio-20-plus-10_03_2025-aa1645c4.png?tr=w-750,q-100,f-avif",
+                "https://ik.imagekit.io/z6mqjyyzz/media/public/1b6f36dbbe5c4d1b9_Maxsol-Tube-sealer.jpg?tr=w-1000,q-75,f-avif",
+                "https://ik.imagekit.io/z6mqjyyzz/media/public/d489cbf6e9464a90a_MBBLOBEATUEPIGHMR9XX.jpg?tr=w-1000,q-75,f-avif",
+                "https://ik.imagekit.io/z6mqjyyzz/media/public/bioline-agglutination-viewer-box-of-1-unit-bio-av-20-04_03_2025-3d9e107d.jpg?tr=w-1000,q-75,f-avif"
+            ];
+            let productsHTML = "";
+            diagnosticsProducts.forEach((prodName, index) => {
+                productsHTML += `
+                    <div class="product-item">
+                        <img src="${diagnosticsImages[index]}" alt="${prodName}">
+                        <p>${prodName}</p>
+                        <p>Price not set</p>
+                    </div>
+                `;
+            });
+            productGrid.innerHTML = productsHTML;
+        } else {
+            // Simulate multiple product items (for example, 6 items) for this brand/procedure/product
+            const numberOfProducts = 6;
+            let productsHTML = '';
+            for (let i = 1; i <= numberOfProducts; i++) {
+                // If section is "diagnostics-type" then price is not set; otherwise, use a simulated random price.
+                const price = "$" + (Math.random() * 100 + 10).toFixed(2);
+                productsHTML += `
+                    <div class="product-item">
+                        <img src="https://via.placeholder.com/150?text=${encodeURIComponent(item + ' ' + i)}" alt="${item} ${i}">
+                        <p>${item} ${i}</p>
+                        <p>${price}</p>
+                    </div>
+                `;
+            }
+            productGrid.innerHTML = productsHTML;
         }
-        productGrid.innerHTML = productsHTML;
     </script>
 </body>
 </html>
