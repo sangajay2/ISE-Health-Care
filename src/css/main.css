@@ -370,8 +370,8 @@ main {
 
 /* NEW: Diagnostic image sizing (80% reduction from original 150px size, i.e. 30px) */
 .diagnostic-img {
-  width: 30px;
-  height: 30px;
+  width: 45px;         /* updated from 30px */
+  height: 45px;        /* updated from 30px */
   object-fit: cover;
   display: block;
   margin: 0 auto;
