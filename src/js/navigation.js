@@ -259,23 +259,75 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div class="product-section">
                     <h3>Explore by Type of Products</h3>
                     <ul class="product-list">
-                        ${diagnosticTypeProducts.map(prod => `<li>
-                            <a href="product.html?section=diagnostics-type&item=${encodeURIComponent(prod)}">
-                                <img src="https://via.placeholder.com/150?text=${encodeURIComponent(prod)}" alt="${prod}">
-                                <br>${prod}
-                            </a>
-                        </li>`).join('')}
+                        ${diagnosticTypeProducts.map(prod => {
+                            const imageUrl = (() => {
+                                if (prod === "Blood bank instrument") {
+                                    return "https://mediwise.co.in/wp-content/uploads/2016/10/BCM-20.jpg";
+                                } else if (prod === "Glucometer Strip") {
+                                    return "https://b-arm.com/wp-content/uploads/2021/06/Untitled-design-23.png";
+                                } else if (prod === "Glucometer") {
+                                    return "https://m.media-amazon.com/images/I/61vQYB662CL._SL1500_.jpg";
+                                } else if (prod === "ELISA plate") {
+                                    return "https://www.bosterbio.com/media/magefan_blog/elisa_pipettes.jpg";
+                                } else if (prod === "Haemoglobin Meter") {
+                                    return "https://static1.industrybuying.com/products/lab-supplies/lab-necessities/lab-measuring-instrument/LAB.LAB.824157316_1704180837354.webp";
+                                } else if (prod === "POCT Analyser") {
+                                    return "https://cdnus.globalso.com/pushkangbio/28773568.png";
+                                } else if (prod === "Urine Analyzer") {
+                                    return "https://www.agappe.com/media/catalog/product/u/r/uriskan_plus_2000x.png?auto=webp&format=png&width=960&height=1200&fit=cover";
+                                } else if (prod === "Monitor") {
+                                    return "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Monitor_%28medical%29.jpg/375px-Monitor_%28medical%29.jpg";
+                                } else if (prod === "Electrode") {
+                                    return "https://metalcutting.com/wp-content/uploads/2020/04/MCC-swiss-machining-of-medical-electrodes.png";
+                                } else if (prod === "ELISA reader") {
+                                    return "https://halomedicals.com/wp-content/uploads/2020/08/DAS-Elisa-Reader-570x570.jpg";
+                                } else {
+                                    return `https://via.placeholder.com/150?text=${encodeURIComponent(prod)}`;
+                                }
+                            })();
+                            return `<li>
+                                <a href="product.html?section=diagnostics-type&item=${encodeURIComponent(prod)}">
+                                    <img src="${imageUrl}" alt="${prod}" class="diagnostic-img">
+                                    <br>${prod}
+                                </a>
+                            </li>`;
+                        }).join('')}
                     </ul>
                 </div>
                 <div class="product-section">
                     <h3>Explore by Specialities</h3>
                     <ul class="product-list">
-                        ${diagnosticSpecialities.map(spec => `<li>
-                            <a href="product.html?section=diagnostics-specialities&item=${encodeURIComponent(spec)}">
-                                <img src="https://via.placeholder.com/150?text=${encodeURIComponent(spec)}" alt="${spec}">
-                                <br>${spec}
-                            </a>
-                        </li>`).join('')}
+                        ${diagnosticSpecialities.map(spec => {
+                            const specImage = (() => {
+                                if (spec === "Transfusion medicine") {
+                                    return "https://www.lexiconin.com/wp-content/uploads/2023/01/image-30.png";
+                                } else if (spec === "Diagnostics") {
+                                    return "https://txhospitals.in/wp-content/uploads/2024/01/Molecular-Diagnostics.png";
+                                } else if (spec === "POCT") {
+                                    return "https://www.analis.com/web/image/541803-cdc3bd1a/DIRUI-POCT-URINE%20ANALYSIS-HC%20300.png?access_token=755d8867-fc39-4f80-b693-16ac765c1f78";
+                                } else if (spec === "Biochemistry") {
+                                    return "https://images.newscientist.com/wp-content/uploads/2019/10/22153920/biochemistry-shutterstock_187967735_web.jpg?width=900";
+                                } else if (spec === "Histopathology") {
+                                    return "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/MI_with_contraction_bands_very_high_mag.jpg/960px-MI_with_contraction_bands_very_high_mag.jpg";
+                                } else if (spec === "Clinical Pathology") {
+                                    return "https://www.aprocarediagnostics.com/images/services/ClinicalPathalogy.jpg";
+                                } else if (spec === "Hematology") {
+                                    return "https://www.regionalcancercare.org/wp-content/uploads/elementor/thumbs/laboratory-technician-placing-patients-blood-sample-on-rack-with-other-test-tubes-qgrhxyrqgo2kn8n3bvhesvol7ktxm0ilyk7ihnh5fc.jpg";
+                                } else if (spec === "General Hand Instruments and Hollowares") {
+                                    return "https://www.colmed.in/pub/media/catalog/product/cache/0b053d6a941a972e37b88f9ddcceee64/b/p/bphandle.jpg";
+                                } else if (spec === "Immunology") {
+                                    return "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/MRSA%2C_Ingestion_by_Neutrophil.jpg/800px-MRSA%2C_Ingestion_by_Neutrophil.jpg";
+                                } else {
+                                    return `https://via.placeholder.com/150?text=${encodeURIComponent(spec)}`;
+                                }
+                            })();
+                            return `<li>
+                                <a href="product.html?section=diagnostics-specialities&item=${encodeURIComponent(spec)}">
+                                    <img src="${specImage}" alt="${spec}" class="diagnostic-img">
+                                    <br>${spec}
+                                </a>
+                            </li>`;
+                        }).join('')}
                     </ul>
                 </div>
             </div>
@@ -283,7 +335,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const backLink = categoriesSection.querySelector('.back-link');
         backLink.addEventListener('click', (e) => {
             e.preventDefault();
-            // Reload Diagnostics subcategories—you may change this as needed.
             location.reload();
         });
     }
