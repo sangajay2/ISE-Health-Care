@@ -9,13 +9,13 @@
         .product-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 1rem;
-            padding: 1rem;
+            gap: 0.8rem; /* reduced gap */
+            padding: 0.8rem; /* reduced padding */
         }
         .product-item {
             border: 1px solid #ddd;
             border-radius: 5px;
-            padding: 0.5rem;
+            padding: 0.4rem; /* reduced padding */
             text-align: center;
             background: #fff;
         }
@@ -78,6 +78,101 @@
                         <img src="${diagnosticsImages[index]}" alt="${prodName}">
                         <p>${prodName}</p>
                         <p>Price not set</p>
+                    </div>
+                `;
+            });
+            productGrid.innerHTML = productsHTML;
+        } else if(section === "sub" && item === "Biochemistry") {
+            // Updated Biochemistry branch after removing "Micropipette" and "Fluoride Blood Collection Tube"
+            const biochemistryNames = [
+                "EDTA Blood Collection Tube",
+                "Biochemistry Reagent",
+                "Micropipette Tip",
+                "Centrifuge Tube",
+                "Clot Activator Tube",
+                "Sodium Citrate Blood collection Tube",
+                "Coverslip",
+                "Heparin Blood Collection Tube"
+            ];
+            const biochemistryImages = [
+                "https://ik.imagekit.io/z6mqjyyzz/media/public/bradley-edta-k3-non-vacuum-blood-collection-tube-2ml-pack-of-100-pieces-bl-7000-17_02_20_8gasKYF.png?tr=w-1000,q-75,f-avif",  // EDTA Blood Collection Tube
+                "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/Biochemistry_Reagent.jpg?tr=w-150,q-60,f-avif",                         // Biochemistry Reagent
+                "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/Pipette_tips_2_Mkj8pjd.jpg?tr=w-150,q-60,f-avif",                         // Micropipette Tip
+                "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/image_YOqaG8Y.png?tr=w-150,q-60,f-avif",                                                      // Centrifuge Tube
+                "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/Yellow-gel-tube_6CC1LGJ.jpg?tr=w-150,q-60,f-avif",                       // Clot Activator Tube
+                "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/Citrate_YiIhYbo.jpg?tr=w-150,q-60,f-avif",                             // Sodium Citrate Blood collection Tube
+                "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/Coverslip_2_O7KPlHO.jpg?tr=w-150,q-60,f-avif",                          // Coverslip
+                "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/Heparin_Ad65S0R.jpg?tr=w-150,q-60,f-avif"                               // Heparin Blood Collection Tube
+            ];
+            const biochemistryPrices = Array(biochemistryNames.length).fill("Price not set");
+            let productsHTML = "";
+            biochemistryNames.forEach((name, index) => {
+                productsHTML += `
+                    <div class="product-item">
+                        <img src="${biochemistryImages[index]}" alt="${name}">
+                        <p>${name}</p>
+                        <p>${biochemistryPrices[index]}</p>
+                    </div>
+                `;
+            });
+            productGrid.innerHTML = productsHTML;
+        } else if(section === "sub" && item === "Rapid Card") {
+            const rapidCardNames = [
+                "Other rapid card",
+                "Dengue rapid card",
+                "Malaria rapid card",
+                "HIV rapid card",
+                "Urine strip",
+                "HBsAG rapid card",
+                "HCV rapid card",
+                "Pregnancy kit",
+                "Drug testing Rapid card"
+            ];
+            const rapidCardPrices = Array(rapidCardNames.length).fill("Price not set");
+            const rapidCardImages = [
+                "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/Rapid_card_WyHDaiT.jpg?tr=w-150,q-60,f-avif", // Other rapid card
+                "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/Dengue_Yd4W5Kv.jpg?tr=w-150,q-60,f-avif",      // Dengue rapid card
+                "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/Malaria_M0yJmXv.jpg?tr=w-150,q-60,f-avif",     // Malaria rapid card
+                "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/HIV_wXolm4Y.jpg?tr=w-150,q-60,f-avif",         // HIV rapid card
+                "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/Urine-strip-2_FJB6r7q.jpg?tr=w-150,q-60,f-avif",// Urine strip
+                "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/HBsab_tlvXt24.jpg?tr=w-150,q-60,f-avif",         // HBsAG rapid card
+                "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/HCV_rapid_card_VRiyA5T.jpg?tr=w-150,q-60,f-avif",  // HCV rapid card
+                "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/pregnancy.jpg?tr=w-150,q-60,f-avif",                                 // Pregnancy kit
+                "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Drug_testing_Rapid_card.jpg?tr=w-150,q-60,f-avif"                        // Drug testing Rapid card
+            ];
+            let productsHTML = "";
+            rapidCardNames.forEach((name, index) => {
+                productsHTML += `
+                    <div class="product-item">
+                        <img src="${rapidCardImages[index]}" alt="${name}">
+                        <p>${name}</p>
+                        <p>${rapidCardPrices[index]}</p>
+                    </div>
+                `;
+            });
+            productGrid.innerHTML = productsHTML;
+        } else if(section === "sub" && item === "Phlebotomy") {
+            // Updated Phlebotomy branch with selected items only
+            const phlebotomyNames = [
+                "EDTA Blood Collection Tube",
+                "Clot Activator Tube",
+                "Sodium Citrate Blood collection Tube",
+                "Heparin Blood Collection Tube"
+            ];
+            const phlebotomyImages = [
+                "https://ik.imagekit.io/z6mqjyyzz/media/public/bradley-edta-k3-non-vacuum-blood-collection-tube-2ml-pack-of-100-pieces-bl-7000-17_02_20_8gasKYF.png?tr=w-1000,q-75,f-avif",  // EDTA Blood Collection Tube
+                "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/Yellow-gel-tube_6CC1LGJ.jpg?tr=w-150,q-60,f-avif",         // Clot Activator Tube
+                "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/Citrate_YiIhYbo.jpg?tr=w-150,q-60,f-avif",           // Sodium Citrate Blood collection Tube
+                "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/Heparin_Ad65S0R.jpg?tr=w-150,q-60,f-avif"             // Heparin Blood Collection Tube
+            ];
+            const phlebotomyPrices = Array(phlebotomyNames.length).fill("Price not set");
+            let productsHTML = "";
+            phlebotomyNames.forEach((name, index) => {
+                productsHTML += `
+                    <div class="product-item">
+                        <img src="${phlebotomyImages[index]}" alt="${name}">
+                        <p>${name}</p>
+                        <p>${phlebotomyPrices[index]}</p>
                     </div>
                 `;
             });
