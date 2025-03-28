@@ -177,6 +177,32 @@
                 `;
             });
             productGrid.innerHTML = productsHTML;
+        } else if(section === "consumables-type" && item === "Stethoscope") {
+            const stethoscopes = [
+                { model: "Rossmax Sprague Rappaport Stethoscope", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/d3f4d9b59ed248f7b_eb500.png?tr=w-126,q-60,f-avif" },
+                { model: "3M Littmann Classic III (5806)", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/67fb3ff95ec64c4d8_5806.jpg?tr=w-126,q-60,f-avif" },
+                { model: "Microtone Stethoscope", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/02231f8ef9d14f0bb_7_Microtone_Stethoscope.jpg?tr=w-126,q-60,f-avif" },
+                { model: "MCP ELITE ST-EL01", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/6c4bcdfa3c0d433bb_51f8s7odzol._sl1500_.jpg?tr=w-126,q-60,f-avif" },
+                { model: "3M Littmann Lightweight II S.E. (2450)", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/454c2c06715e4bc3b_3M_Littmann_Classic_III_Monitoring_Stethoscope_5811_-_Smoke_Finish_Ch_mAHHztS.jpeg?tr=w-126,q-60,f-avif" },
+                { model: "Accusure Stethoscope", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/58bc4d21ca9d46ec8_ste_2.jpg?tr=w-126,q-60,f-avif" }
+            ];
+            let productsHTML = "";
+            stethoscopes.forEach(item => {
+                productsHTML += `
+                    <div class="product-item">
+                        <img src="${item.image}" alt="${item.model}">
+                        <p>${item.model}</p>
+                        <p>Price not set</p>
+                    </div>
+                `;
+            });
+            productDetails.innerHTML = `
+                <h1>Stethoscope</h1>
+                <p>Category: consumables-type</p>
+                <hr>
+                <div class="product-grid">${productsHTML}</div>
+                <a href="index.html">Back to Home</a>
+            `;
         } else {
             // Simulate multiple product items (for example, 6 items) for this brand/procedure/product
             const numberOfProducts = 6;
