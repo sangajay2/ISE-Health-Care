@@ -18,6 +18,8 @@
             padding: 0.4rem; /* reduced padding */
             text-align: center;
             background: #fff;
+            position: relative;
+            overflow: hidden;
         }
         .product-item img {
             width: 25%; /* reduced further from 50% to 25% */
@@ -25,6 +27,123 @@
             border-radius: 5px;
             display: block;
             margin: auto;
+        }
+        .product-image-container {
+            position: relative;
+            overflow: hidden;
+        }
+        .product-image-container img {
+            transition: transform 0.3s ease;
+        }
+        .product-image-container:hover img {
+            transform: scale(1.5);
+        }
+        .quick-view-btn {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(43, 57, 144, 0.8);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 15px;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .product-item:hover .quick-view-btn {
+            opacity: 1;
+        }
+        .product-ratings {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0.5rem 0;
+        }
+        .stars {
+            color: gold;
+        }
+        .review-count {
+            color: #666;
+            font-size: 0.9em;
+        }
+        /* Breadcrumb styles */
+        .breadcrumb-nav {
+            padding: 1rem;
+            background: #f5f5f5;
+            margin-bottom: 1rem;
+        }
+        .breadcrumb-nav ol {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .breadcrumb-nav li {
+            display: flex;
+            align-items: center;
+        }
+        .breadcrumb-nav li:not(:last-child)::after {
+            content: "›";
+            margin: 0 0.5rem;
+            color: #666;
+        }
+        /* Quick view modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+        .close-modal {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        /* Reviews section */
+        .reviews-section {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #ddd;
+        }
+        .review-item {
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        .reviewer-name {
+            font-weight: bold;
+        }
+        .review-date {
+            color: #666;
+            font-size: 0.9em;
         }
     </style>
 </head>
@@ -36,9 +155,26 @@
         </nav>
     </header>
     <main>
+        <!-- Add breadcrumb navigation -->
+        <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+            <ol>
+                <li><a href="index.html">Home</a></li>
+                <li id="section-crumb"></li>
+                <li id="item-crumb" aria-current="page"></li>
+            </ol>
+        </nav>
+        
         <section id="product-details">
             <!-- Product details will be rendered here -->
         </section>
+
+        <!-- Quick view modal -->
+        <div class="modal" id="quick-view-modal">
+            <div class="modal-content">
+                <button class="close-modal" aria-label="Close modal">&times;</button>
+                <div id="quick-view-content"></div>
+            </div>
+        </div>
     </main>
     <script>
         // Read query parameters
@@ -75,13 +211,7 @@
             ];
             let productsHTML = "";
             diagnosticsProducts.forEach((prodName, index) => {
-                productsHTML += `
-                    <div class="product-item">
-                        <img src="${diagnosticsImages[index]}" alt="${prodName}">
-                        <p>${prodName}</p>
-                        <p>Price not set</p>
-                    </div>
-                `;
+                productsHTML += renderProduct({ name: prodName, image: diagnosticsImages[index], price: "Price not set" });
             });
             productGrid.innerHTML = productsHTML;
         } else if(section === "sub" && item === "Biochemistry") {
@@ -109,13 +239,7 @@
             const biochemistryPrices = Array(biochemistryNames.length).fill("Price not set");
             let productsHTML = "";
             biochemistryNames.forEach((name, index) => {
-                productsHTML += `
-                    <div class="product-item">
-                        <img src="${biochemistryImages[index]}" alt="${name}">
-                        <p>${name}</p>
-                        <p>${biochemistryPrices[index]}</p>
-                    </div>
-                `;
+                productsHTML += renderProduct({ name, image: biochemistryImages[index], price: biochemistryPrices[index] });
             });
             productGrid.innerHTML = productsHTML;
         } else if(section === "sub" && item === "Rapid Card") {
@@ -144,13 +268,7 @@
             ];
             let productsHTML = "";
             rapidCardNames.forEach((name, index) => {
-                productsHTML += `
-                    <div class="product-item">
-                        <img src="${rapidCardImages[index]}" alt="${name}">
-                        <p>${name}</p>
-                        <p>${rapidCardPrices[index]}</p>
-                    </div>
-                `;
+                productsHTML += renderProduct({ name, image: rapidCardImages[index], price: rapidCardPrices[index] });
             });
             productGrid.innerHTML = productsHTML;
         } else if(section === "sub" && item === "Phlebotomy") {
@@ -170,13 +288,7 @@
             const phlebotomyPrices = Array(phlebotomyNames.length).fill("Price not set");
             let productsHTML = "";
             phlebotomyNames.forEach((name, index) => {
-                productsHTML += `
-                    <div class="product-item">
-                        <img src="${phlebotomyImages[index]}" alt="${name}">
-                        <p>${name}</p>
-                        <p>${phlebotomyPrices[index]}</p>
-                    </div>
-                `;
+                productsHTML += renderProduct({ name, image: phlebotomyImages[index], price: phlebotomyPrices[index] });
             });
             productGrid.innerHTML = productsHTML;
         } else if(section === "consumables-type" && item === "Stethoscope") {
@@ -190,13 +302,7 @@
             ];
             let productsHTML = "";
             stethoscopes.forEach(item => {
-                productsHTML += `
-                    <div class="product-item">
-                        <img src="${item.image}" alt="${item.model}">
-                        <p>${item.model}</p>
-                        <p>Price not set</p>
-                    </div>
-                `;
+                productsHTML += renderProduct({ name: item.model, image: item.image, price: "Price not set" });
             });
             productDetails.innerHTML = `
                 <h1>Stethoscope</h1>
@@ -217,13 +323,7 @@
             ];
             let productsHTML = "";
             forcepsProducts.forEach(prod => {
-                 productsHTML += `
-                     <div class="product-item">
-                         <img src="${prod.image}" alt="${prod.name}">
-                         <p>${prod.name}</p>
-                         <p>${prod.price}</p>
-                     </div>
-                 `;
+                 productsHTML += renderProduct(prod);
             });
             document.querySelector('.product-grid').innerHTML = productsHTML;
         } else if(section === "sub" && item === "Diagnostic Test Kit") {
@@ -238,13 +338,7 @@
             ];
             let productsHTML = "";
             diagnosticTestKitProducts.forEach(prod => {
-                productsHTML += `
-                    <div class="product-item">
-                        <img src="${prod.image}" alt="${prod.name}">
-                        <p>${prod.name}</p>
-                        <p>${prod.price}</p>
-                    </div>
-                `;
+                productsHTML += renderProduct(prod);
             });
             document.querySelector('.product-grid').innerHTML = productsHTML;
         } else if(section === "sub" && item === "Equipment & Accessories") {
@@ -259,13 +353,7 @@
             ];
             let productsHTML = "";
             equipmentAccessoriesProducts.forEach(prod => {
-                productsHTML += `
-                    <div class="product-item">
-                        <img src="${prod.image}" alt="${prod.name}">
-                        <p>${prod.name}</p>
-                        <p>${prod.price}</p>
-                    </div>
-                `;
+                productsHTML += renderProduct(prod);
             });
             document.querySelector('.product-grid').innerHTML = productsHTML;
         } else if(section === "sub" && item === "Surgical Consumables") {
@@ -280,13 +368,7 @@
             ];
             let productsHTML = "";
             surgicalConsumablesProducts.forEach(prod => {
-                productsHTML += `
-                    <div class="product-item">
-                        <img src="${prod.image}" alt="${prod.name}">
-                        <p>${prod.name}</p>
-                        <p>${prod.price}</p>
-                    </div>
-                `;
+                productsHTML += renderProduct(prod);
             });
             document.querySelector('.product-grid').innerHTML = productsHTML;
         } else if(section === "sub" && item === "Hygiene Control") {
@@ -301,13 +383,7 @@
             ];
             let productsHTML = "";
             hygieneControlProducts.forEach(prod => {
-                productsHTML += `
-                    <div class="product-item">
-                        <img src="${prod.image}" alt="${prod.name}">
-                        <p>${prod.name}</p>
-                        <p>${prod.price}</p>
-                    </div>
-                `;
+                productsHTML += renderProduct(prod);
             });
             document.querySelector('.product-grid').innerHTML = productsHTML;
         } else {
@@ -317,16 +393,95 @@
             for (let i = 1; i <= numberOfProducts; i++) {
                 // If section is "diagnostics-type" then price is not set; otherwise, use a simulated random price.
                 const price = "$" + (Math.random() * 100 + 10).toFixed(2);
-                productsHTML += `
-                    <div class="product-item">
-                        <img src="https://via.placeholder.com/150?text=${encodeURIComponent(item + ' ' + i)}" alt="${item} ${i}">
-                        <p>${item} ${i}</p>
-                        <p>${price}</p>
-                    </div>
-                `;
+                productsHTML += renderProduct({ name: `${item} ${i}`, image: `https://via.placeholder.com/150?text=${encodeURIComponent(item + ' ' + i)}`, price });
             }
             productGrid.innerHTML = productsHTML;
         }
+
+        // Enhanced product rendering with ratings and reviews
+        function renderProduct(product) {
+            const randomRating = (Math.random() * 2 + 3).toFixed(1); // Random rating between 3 and 5
+            const randomReviews = Math.floor(Math.random() * 50) + 1; // Random number of reviews
+
+            return `
+                <div class="product-item">
+                    <div class="product-image-container">
+                        <img src="${product.image}" alt="${product.name}">
+                        <button class="quick-view-btn" onclick="showQuickView(${JSON.stringify(product)})" aria-label="Quick view ${product.name}">
+                            Quick View
+                        </button>
+                    </div>
+                    <h3>${product.name}</h3>
+                    <div class="product-ratings">
+                        <div class="stars" aria-label="Rating: ${randomRating} out of 5 stars">
+                            ${'★'.repeat(Math.floor(randomRating))}${randomRating % 1 >= 0.5 ? '½' : ''}${'☆'.repeat(5 - Math.ceil(randomRating))}
+                        </div>
+                        <span class="review-count">(${randomReviews} reviews)</span>
+                    </div>
+                    <p>${product.price}</p>
+                </div>
+            `;
+        }
+
+        function showQuickView(product) {
+            const modal = document.getElementById('quick-view-modal');
+            const content = document.getElementById('quick-view-content');
+            
+            // Generate some mock reviews
+            const reviews = Array(3).fill().map(() => ({
+                name: ['John D.', 'Sarah M.', 'Mike R.', 'Emily L.'][Math.floor(Math.random() * 4)],
+                rating: (Math.random() * 2 + 3).toFixed(1),
+                date: new Date(Date.now() - Math.random() * 10000000000).toLocaleDateString(),
+                text: ['Great product!', 'Very satisfied with the quality.', 'Exactly what I needed.'][Math.floor(Math.random() * 3)]
+            }));
+
+            content.innerHTML = `
+                <h2>${product.name}</h2>
+                <div class="product-image-container">
+                    <img src="${product.image}" alt="${product.name}" style="width: 100%; max-width: 300px;">
+                </div>
+                <p>${product.price}</p>
+                <div class="reviews-section">
+                    <h3>Customer Reviews</h3>
+                    ${reviews.map(review => `
+                        <div class="review-item">
+                            <div class="review-header">
+                                <span class="reviewer-name">${review.name}</span>
+                                <span class="review-date">${review.date}</span>
+                            </div>
+                            <div class="stars">
+                                ${'★'.repeat(Math.floor(review.rating))}${review.rating % 1 >= 0.5 ? '½' : ''}${'☆'.repeat(5 - Math.ceil(review.rating))}
+                            </div>
+                            <p>${review.text}</p>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+            
+            modal.style.display = 'flex';
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('quick-view-modal').addEventListener('click', (e) => {
+            if (e.target === e.currentTarget) {
+                e.target.style.display = 'none';
+            }
+        });
+
+        document.querySelector('.close-modal').addEventListener('click', () => {
+            document.getElementById('quick-view-modal').style.display = 'none';
+        });
+
+        // Update breadcrumbs
+        document.getElementById('section-crumb').textContent = section || 'Categories';
+        document.getElementById('item-crumb').textContent = item;
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.getElementById('quick-view-modal').style.display = 'none';
+            }
+        });
     </script>
 </body>
 </html>
