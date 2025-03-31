@@ -203,6 +203,48 @@
                 <div class="product-grid">${productsHTML}</div>
                 <a href="index.html">Back to Home</a>
             `;
+        } else if(section === "sub" && item === "Diagnostic Test Kit") {
+            // New: Updated Diagnostic Test Kit items
+            const diagnosticTestKitProducts = [
+                { name: "PCR Kit", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/PCR-Kit.jpg?tr=w-150,q-60,f-avif", price: "Price not set" },
+                { name: "Biochemistry Manual Kit", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/Biochemistry-Manual-Kits.jpg?tr=w-150,q-60,f-avif", price: "Price not set" },
+                { name: "Molecular Biology", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/Specialities/molecular.jpg?tr=w-150,q-60,f-avif", price: "Price not set" },
+                { name: "Biochemistry", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/Specialities/biochemistry.jpg?tr=w-150,q-60,f-avif", price: "Price not set" },
+                { name: "Reckon Hemopak G-6-PDH Test Kit", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/db58a8a2b4bc4f8ca_Reckon_2.png?tr=w-126,q-60,f-avif", price: "Price not set" },
+                { name: "Accurex Autopure CRP 50 - Box of 1 Set", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/f9335b802f024a179_Autopure-CRP-3.jpg?tr=w-126,q-60,f-avif", price: "Price not set" }
+            ];
+            let productsHTML = "";
+            diagnosticTestKitProducts.forEach(prod => {
+                productsHTML += `
+                    <div class="product-item">
+                        <img src="${prod.image}" alt="${prod.name}">
+                        <p>${prod.name}</p>
+                        <p>${prod.price}</p>
+                    </div>
+                `;
+            });
+            document.querySelector('.product-grid').innerHTML = productsHTML;
+        } else if(section === "sub" && item === "Equipment & Accessories") {
+            // New: Updated Equipment & Accessories subcategories
+            const equipmentAccessoriesProducts = [
+                { name: "Micropipette", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/Micropipette_4_hOacuUl.jpg?tr=w-150,q-60,f-avif", price: "Price not set" },
+                { name: "Centrifuge", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Centrifuge.jpg?tr=w-150,q-60,f-avif", price: "Price not set" },
+                { name: "Incubator", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/Incubator_S4uGfO5.jpg?tr=w-150,q-60,f-avif", price: "Price not set" },
+                { name: "Freezer", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/Freezer_KIuHs8p.jpg?tr=w-150,q-60,f-avif", price: "Price not set" },
+                { name: "Reagent bottle", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/reagent-bottle_7RY4z5w.jpg?tr=w-150,q-60,f-avif", price: "Price not set" },
+                { name: "Refrigerator", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/refrigerator_VOW4VVP.jpg?tr=w-150,q-60,f-avif", price: "Price not set" }
+            ];
+            let productsHTML = "";
+            equipmentAccessoriesProducts.forEach(prod => {
+                productsHTML += `
+                    <div class="product-item">
+                        <img src="${prod.image}" alt="${prod.name}">
+                        <p>${prod.name}</p>
+                        <p>${prod.price}</p>
+                    </div>
+                `;
+            });
+            document.querySelector('.product-grid').innerHTML = productsHTML;
         } else {
             // Simulate multiple product items (for example, 6 items) for this brand/procedure/product
             const numberOfProducts = 6;
