@@ -97,6 +97,18 @@ document.addEventListener("DOMContentLoaded", () => {
         "CPAP Machine"
     ];
 
+    // Add the section mappings at the top with other constants
+    const SECTION_MAPPINGS = {
+        'diagnostic instruments': 'diagnostics-type',
+        'medical consumables': 'consumables-type',
+        'surgical consumables': 'surgical-consumables',
+        'respiratory equipment': 'respiratory-equipment'
+    };
+
+    function getStandardizedSection(category) {
+        return SECTION_MAPPINGS[category.toLowerCase()] || category.toLowerCase();
+    }
+
     // Fetch the exact categories from the JSON file
     fetch('src/data/categories.json')
         .then(response => { 
@@ -514,4 +526,256 @@ document.addEventListener("DOMContentLoaded", () => {
         e.preventDefault();
         alert("Contact us at: info@example.com");
     });
+
+    // Search functionality
+    const searchInput = document.getElementById('search-input');
+    const searchBtn = document.getElementById('search-btn');
+
+    function performSearch(query) {
+        query = query.toLowerCase();
+        const allProducts = [];
+        
+        // Collect all products with their correct section mappings
+        diagnosticTypeProducts.forEach(prod => 
+            allProducts.push({ 
+                name: prod, 
+                category: 'Diagnostic Instruments',
+                sectionSlug: 'diagnostics-type'  // Use correct section slug
+            })
+        );
+        
+        medicalConsumablesTypeProducts.forEach(prod => 
+            allProducts.push({ 
+                name: prod, 
+                category: 'Medical Consumables',
+                sectionSlug: 'consumables-type'  // Use correct section slug
+            })
+        );
+        
+        equipmentRespiratoryTypeProducts.forEach(prod => 
+            allProducts.push({ 
+                name: prod, 
+                category: 'Respiratory Equipment',
+                sectionSlug: 'respiratory-equipment'  // Use correct section slug
+            })
+        );
+
+        const results = allProducts.filter(product => 
+            product.name.toLowerCase().includes(query) || 
+            product.category.toLowerCase().includes(query)
+        );
+
+        if (results.length > 0) {
+            const resultsHTML = results.map(product => `
+                <div class="search-result-item">
+                    <a href="product.html?section=${product.sectionSlug}&item=${encodeURIComponent(product.name)}">
+                        ${product.name} <span class="category-tag">${product.category}</span>
+                    </a>
+                </div>
+            `).join('');
+
+            const searchResults = document.createElement('div');
+            searchResults.className = 'search-results';
+            searchResults.innerHTML = resultsHTML;
+            
+            const existingResults = document.querySelector('.search-results');
+            if (existingResults) {
+                existingResults.remove();
+            }
+            
+            searchInput.parentNode.appendChild(searchResults);
+        }
+    }
+
+    searchInput.addEventListener('keyup', (e) => {
+        if (e.key === 'Enter' && searchInput.value.trim()) {
+            performSearch(searchInput.value.trim());
+        }
+    });
+
+    searchBtn.addEventListener('click', () => {
+        if (searchInput.value.trim()) {
+            performSearch(searchInput.value.trim());
+        }
+    });
+
+    // Close search results when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.search-container')) {
+            const searchResults = document.querySelector('.search-results');
+            if (searchResults) {
+                searchResults.remove();
+            }
+        }
+    });
+
+    // Live Chat Implementation
+    const chatWidget = document.getElementById('chat-widget');
+    const chatInput = document.getElementById('chat-input');
+    const chatBody = document.getElementById('chat-body');
+    const sendMessageBtn = document.getElementById('send-message');
+    const liveChatBtn = document.getElementById('live-chat-btn');
+    const closeChat = document.getElementById('close-chat');
+
+    function addMessage(message, isUser = true) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `chat-message ${isUser ? 'user' : 'support'}`;
+        messageDiv.innerHTML = `
+            <div class="message-content">
+                <span class="sender">${isUser ? 'You' : 'Support'}</span>
+                <p>${message}</p>
+                <span class="time">${new Date().toLocaleTimeString()}</span>
+            </div>
+        `;
+        chatBody.appendChild(messageDiv);
+        chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    const autoResponses = {
+        'hello': 'Hello! How can I help you today?',
+        'hi': 'Hi there! How can I assist you?',
+        'price': 'For pricing information, please contact our sales team at sales@ise-healthcare.com',
+        'contact': 'You can reach us at support@ise-healthcare.com or call us at 1-800-123-4567',
+        'help': 'I\'m here to help! What information are you looking for?'
+    };
+
+    function getAutoResponse(message) {
+        message = message.toLowerCase();
+        for (const [key, response] of Object.entries(autoResponses)) {
+            if (message.includes(key)) {
+                return response;
+            }
+        }
+        return "Thank you for your message. A customer service representative will respond shortly.";
+    }
+
+    liveChatBtn.addEventListener('click', () => {
+        chatWidget.style.display = 'block';
+        addMessage('Welcome to ISE Health Care Support! How can we assist you today?', false);
+    });
+
+    closeChat.addEventListener('click', () => {
+        chatWidget.style.display = 'none';
+        chatBody.innerHTML = ''; // Clear chat history
+    });
+
+    function sendMessage() {
+        const message = chatInput.value.trim();
+        if (message) {
+            addMessage(message);
+            setTimeout(() => {
+                addMessage(getAutoResponse(message), false);
+            }, 1000);
+            chatInput.value = '';
+        }
+    }
+
+    sendMessageBtn.addEventListener('click', sendMessage);
+    chatInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            sendMessage();
+        }
+    });
+
+    // Keyboard accessibility for navbar
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach((link, index) => {
+        link.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                link.click();
+            }
+            if (e.key === 'ArrowRight' && index < navLinks.length - 1) {
+                navLinks[index + 1].focus();
+            }
+            if (e.key === 'ArrowLeft' && index > 0) {
+                navLinks[index - 1].focus();
+            }
+        });
+    });
 });
+
+// Add these new styles to the existing CSS
+const style = document.createElement('style');
+style.textContent = `
+    .search-results {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: white;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        z-index: 1000;
+        max-height: 300px;
+        overflow-y: auto;
+    }
+
+    .search-result-item {
+        padding: 8px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .search-result-item:last-child {
+        border-bottom: none;
+    }
+
+    .search-result-item a {
+        text-decoration: none;
+        color: #333;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .category-tag {
+        background: #2b3990;
+        color: white;
+        padding: 2px 6px;
+        border-radius: 12px;
+        font-size: 0.8em;
+    }
+
+    .chat-message {
+        margin: 8px;
+        max-width: 80%;
+    }
+
+    .chat-message.user {
+        margin-left: auto;
+    }
+
+    .chat-message.support {
+        margin-right: auto;
+    }
+
+    .message-content {
+        background: #f5f5f5;
+        padding: 8px;
+        border-radius: 8px;
+    }
+
+    .user .message-content {
+        background: #2b3990;
+        color: white;
+    }
+
+    .sender {
+        font-weight: bold;
+        font-size: 0.8em;
+    }
+
+    .time {
+        font-size: 0.7em;
+        color: #666;
+        display: block;
+        margin-top: 4px;
+    }
+
+    .user .time {
+        color: #ddd;
+    }
+`;
+
+document.head.appendChild(style);
