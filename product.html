@@ -203,6 +203,27 @@
                 <div class="product-grid">${productsHTML}</div>
                 <a href="index.html">Back to Home</a>
             `;
+        } else if(section === "consumables-type" && item === "Forceps") {
+            // Updated Forceps subcategory items for Forceps category
+            const forcepsProducts = [
+                 { name: "Medical Consumables", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/image_HrSjsG3.png?tr=q-60,f-avif", price: "Price not set" },
+                 { name: "Surgical Consumables", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewCategories/Surgical_Consumables.png?tr=q-60,f-avif", price: "Price not set" },
+                 { name: "Hygiene Control", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/image_JyGcdN0.png?tr=q-60,f-avif", price: "Price not set" },
+                 { name: "Bandages & Wound", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/image_GrcUUov_WDAoRfJ.png?tr=q-60,f-avif", price: "Price not set" },
+                 { name: "Catheters", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/image_A1xIr5g.png?tr=q-60,f-avif", price: "Price not set" },
+                 { name: "Gown & Drapes", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/image_6rNixWo.png?tr=q-60,f-avif", price: "Price not set" }
+            ];
+            let productsHTML = "";
+            forcepsProducts.forEach(prod => {
+                 productsHTML += `
+                     <div class="product-item">
+                         <img src="${prod.image}" alt="${prod.name}">
+                         <p>${prod.name}</p>
+                         <p>${prod.price}</p>
+                     </div>
+                 `;
+            });
+            document.querySelector('.product-grid').innerHTML = productsHTML;
         } else if(section === "sub" && item === "Diagnostic Test Kit") {
             // New: Updated Diagnostic Test Kit items
             const diagnosticTestKitProducts = [
