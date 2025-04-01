@@ -491,6 +491,19 @@ document.addEventListener("DOMContentLoaded", () => {
     // New function to render Equipment → Respiratory details
     function showEquipmentRespiratoryDetails() {
         const categoriesSection = document.getElementById("categories");
+        const respiratoryImages = {
+            "Suction Machine": "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/image_N567dGI.png?tr=w-150,q-60,f-avif",
+            "Ventilator": "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Ventilator.jpeg?tr=w-150,q-60,f-avif",
+            "Fingertip Pulse Oximeter": "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/image_DOONsIs.png?tr=w-150,q-60,f-avif",
+            "Nebulizer": "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/Nebulizer_HJ5dN0V.jpg?tr=w-150,q-60,f-avif",
+            "Compressor Nebulizer": "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/Nebulizer_HJ5dN0V.jpg?tr=w-150,q-60,f-avif",
+            "Spirometer": "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/Spirometer_kn00nNo.jpg?tr=w-150,q-60,f-avif",
+            "BiPAP Machine": "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/BiPAP-Machine.jpg?tr=w-150,q-60,f-avif",
+            "Air Purifier": "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/Air-Purifier.jpg?tr=w-150,q-60,f-avif",
+            "BPAP Machine": "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/image_SojQuO1.png?tr=w-150,q-60,f-avif",
+            "CPAP Machine": "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/image_lyYWwnj.png?tr=w-150,q-60,f-avif"
+        };
+
         categoriesSection.innerHTML = `
             <div class="breadcrumb">
                 <a href="#" class="back-link">Back to Equipment</a> > Respiratory
@@ -501,7 +514,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     <ul class="product-list">
                         ${equipmentRespiratoryTypeProducts.map(prod => `<li>
                             <a href="product.html?section=equipment-respiratory&item=${encodeURIComponent(prod)}">
-                                <img src="https://via.placeholder.com/150?text=${encodeURIComponent(prod)}" alt="${prod}">
+                                <img src="${respiratoryImages[prod] || `https://via.placeholder.com/150?text=${encodeURIComponent(prod)}`}" alt="${prod}" style="max-width:150px; height:auto;">
                                 <br>${prod}
                             </a>
                         </li>`).join('')}
@@ -695,7 +708,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const liveChatBtn = document.getElementById('live-chat-btn');
     const closeChat = document.getElementById('close-chat');
 
-    function addMessage(message, isUser = true) {
+    function addMessage(message, isUser = true) {   
         const messageDiv = document.createElement('div');
         messageDiv.className = `chat-message ${isUser ? 'user' : 'support'}`;
         messageDiv.innerHTML = `
@@ -773,7 +786,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-// Update the search results CSS for better positioning and visibility
+// Update the style definition with new product image styling
 const style = document.createElement('style');
 style.textContent = `
     .search-container {
@@ -908,6 +921,58 @@ style.textContent = `
         color: #856404;
         padding: 0 2px;
         border-radius: 2px;
+    }
+
+    .product-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
+        padding: 20px;
+        list-style: none;
+    }
+
+    .product-list li {
+        text-align: center;
+        transition: transform 0.2s ease;
+        background: white;
+        border-radius: 8px;
+        padding: 15px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    .product-list li:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .product-list li a {
+        text-decoration: none;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .product-list li img {
+        width: 120px;
+        height: 120px;
+        object-fit: contain;
+        border-radius: 8px;
+        margin-bottom: 10px;
+        transition: transform 0.2s ease;
+    }
+
+    .product-list li:hover img {
+        transform: scale(1.05);
+    }
+
+    .product-list li br + text {
+        font-size: 0.9em;
+        color: #2b3990;
+        font-weight: 500;
+        margin-top: 8px;
+        display: block;
     }
 
     @media (max-width: 768px) {
