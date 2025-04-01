@@ -122,6 +122,33 @@ document.addEventListener("DOMContentLoaded", () => {
         "Sugra Trial Lens Set Golden and Silver", "Sugra Prism Bar Set"
     ];
 
+    const nephrologyProducts = [
+        { name: "Dialysis Machines", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Dialysis_Machines.png?tr=w-128,q-60,f-avif" },
+        { name: "Dialyzers", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Dialyzers_XHGSasS.png?tr=w-128,q-60,f-avif" },
+        { name: "Dialysis Catheters", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Dialysis_Catheters.png?tr=w-128,q-60,f-avif" },
+        { name: "Blood Tubing Sets", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Blood_Tubing_Sets.png?tr=w-128,q-60,f-avif" },
+        { name: "Fistula Needles", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Fistula_Needles.png?tr=w-128,q-60,f-avif" },
+        { name: "Dialysis Disinfectants", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Dialysis_Disinfectants.png?tr=w-128,q-60,f-avif" }
+    ];
+
+    const physiotherapyProducts = [
+        { name: "Neoprene Products", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Neoprene_Products.png?tr=w-128,q-60,f-avif" },
+        { name: "Knee Support", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Knee_Support.png?tr=w-128,q-60,f-avif" },
+        { name: "Body Belts & Braces", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Body_Belts__Braces_copy.png?tr=w-128,q-60,f-avif" },
+        { name: "Allied Products", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Allied_Products.png?tr=w-128,q-60,f-avif" },
+        { name: "Cervical Aids", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Cervical_Aids.png?tr=w-128,q-60,f-avif" },
+        { name: "Compression Stockings", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Compression_Stockings_xwGrt7G.png?tr=w-128,q-60,f-avif" }
+    ];
+
+    const refurbishedDevicesProducts = [
+        { name: "Ultrasound", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Ultrasound.png?tr=w-128,q-60,f-avif" },
+        { name: "CT Scanners", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/CT_Scanners.png?tr=w-128,q-60,f-avif" },
+        { name: "MRI", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/MRI.png?tr=w-128,q-60,f-avif" },
+        { name: "Cathlab", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/CATHLAB.png?tr=w-128,q-60,f-avif" },
+        { name: "Ventilator", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Ventilator.png?tr=w-128,q-60,f-avif" },
+        { name: "CPR", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/CPR.png?tr=w-128,q-60,f-avif" }
+    ];
+
     // Add the section mappings at the top with other constants
     const SECTION_MAPPINGS = {
         'diagnostic instruments': 'diagnostics-type',
@@ -579,8 +606,8 @@ document.addEventListener("DOMContentLoaded", () => {
         function addProducts(products, category, sectionSlug, subcategory = '') {
             products.forEach(prod => 
                 allProducts.push({ 
-                    name: prod,
-                    nameLower: prod.toLowerCase(), 
+                    name: typeof prod === 'string' ? prod : prod.name,
+                    nameLower: (typeof prod === 'string' ? prod : prod.name).toLowerCase(), 
                     category: category,
                     categoryLower: category.toLowerCase(),
                     subcategory: subcategory,
@@ -599,6 +626,9 @@ document.addEventListener("DOMContentLoaded", () => {
         addProducts(bandagesWoundProducts, 'Consumables', 'sub', 'Bandages & Wound');
         addProducts(cardiologyProducts, 'Equipment', 'sub', 'Cardiology');
         addProducts(ophthalmologyProducts, 'Equipment', 'sub', 'Ophthalmology');
+        addProducts(nephrologyProducts.map(p => p.name), 'Nephrology', 'main', 'Nephrology Products');
+        addProducts(physiotherapyProducts.map(p => p.name), 'Physiotherapy', 'main', 'Physiotherapy Products');
+        addProducts(refurbishedDevicesProducts.map(p => p.name), 'Refurbished Devices', 'main', 'Refurbished Products');
 
         // Enhanced case-insensitive search with scoring
         const results = allProducts
