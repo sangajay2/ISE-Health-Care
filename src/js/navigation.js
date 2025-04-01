@@ -96,6 +96,32 @@ document.addEventListener("DOMContentLoaded", () => {
         "CPAP Machine"
     ];
 
+    // Add these new product category arrays for comprehensive search
+    const surgicalConsumablesProducts = [
+        "Suture", "Instrument Trays", "Local Anaesthetics", "Surgical Handles", 
+        "Panty", "Hemostatic Agents"
+    ];
+
+    const hygieneControlProducts = [
+        "Adult Diaper", "Surgical Gloves", "Examination Gloves", "Underpad",
+        "Latex Examination Gloves", "Gel"
+    ];
+
+    const bandagesWoundProducts = [
+        "Dressing", "Surgical tape", "Bandage", "Gauze swab"
+    ];
+
+    const cardiologyProducts = [
+        "ECG Machine", "Patient Monitor", "Defibrillator", "Patient Monitor Accessories",
+        "BPL Single Channel ECG Machine", "BPL Three Channel ECG Machine"
+    ];
+
+    const ophthalmologyProducts = [
+        "Sugra Led Acuity Vision Chart", "Sugra Distance Vision Drum",
+        "Sugra Loose Prism Set", "Sugra Led Vision Chart",
+        "Sugra Trial Lens Set Golden and Silver", "Sugra Prism Bar Set"
+    ];
+
     // Add the section mappings at the top with other constants
     const SECTION_MAPPINGS = {
         'diagnostic instruments': 'diagnostics-type',
@@ -531,59 +557,112 @@ document.addEventListener("DOMContentLoaded", () => {
     const searchBtn = document.getElementById('search-btn');
 
     function performSearch(query) {
-        query = query.toLowerCase();
+        query = query.toLowerCase().trim();
+        if (!query) return;
+
         const allProducts = [];
         
-        // Collect all products with their correct section mappings
-        diagnosticTypeProducts.forEach(prod => 
-            allProducts.push({ 
-                name: prod, 
-                category: 'Diagnostic Instruments',
-                sectionSlug: 'diagnostics-type'  // Use correct section slug
-            })
-        );
-        
-        medicalConsumablesTypeProducts.forEach(prod => 
-            allProducts.push({ 
-                name: prod, 
-                category: 'Medical Consumables',
-                sectionSlug: 'consumables-type'  // Use correct section slug
-            })
-        );
-        
-        equipmentRespiratoryTypeProducts.forEach(prod => 
-            allProducts.push({ 
-                name: prod, 
-                category: 'Respiratory Equipment',
-                sectionSlug: 'respiratory-equipment'  // Use correct section slug
-            })
-        );
+        // Collect all products with their metadata with normalized text
+        function addProducts(products, category, sectionSlug, subcategory = '') {
+            products.forEach(prod => 
+                allProducts.push({ 
+                    name: prod,
+                    nameLower: prod.toLowerCase(), 
+                    category: category,
+                    categoryLower: category.toLowerCase(),
+                    subcategory: subcategory,
+                    subcategoryLower: subcategory.toLowerCase(),
+                    sectionSlug: sectionSlug
+                })
+            );
+        }
 
-        const results = allProducts.filter(product => 
-            product.name.toLowerCase().includes(query) || 
-            product.category.toLowerCase().includes(query)
-        );
+        // Add all product categories
+        addProducts(diagnosticTypeProducts, 'Diagnostic Instruments', 'diagnostics-type', 'Instruments');
+        addProducts(medicalConsumablesTypeProducts, 'Medical Consumables', 'consumables-type', 'General');
+        addProducts(equipmentRespiratoryTypeProducts, 'Equipment', 'respiratory-equipment', 'Respiratory');
+        addProducts(surgicalConsumablesProducts, 'Consumables', 'sub', 'Surgical Consumables');
+        addProducts(hygieneControlProducts, 'Consumables', 'sub', 'Hygiene Control');
+        addProducts(bandagesWoundProducts, 'Consumables', 'sub', 'Bandages & Wound');
+        addProducts(cardiologyProducts, 'Equipment', 'sub', 'Cardiology');
+        addProducts(ophthalmologyProducts, 'Equipment', 'sub', 'Ophthalmology');
+
+        // Enhanced case-insensitive search with scoring
+        const results = allProducts
+            .map(product => {
+                let score = 0;
+                const nameMatch = product.nameLower.includes(query);
+                const categoryMatch = product.categoryLower.includes(query);
+                const subcategoryMatch = product.subcategoryLower.includes(query);
+                
+                // Case-insensitive exact match
+                if (product.nameLower === query) score += 10;
+                // Partial matches at word boundaries get higher score
+                else if (product.nameLower.split(' ').some(word => word.startsWith(query))) score += 7;
+                // Any partial match in name
+                else if (nameMatch) score += 5;
+                
+                // Category and subcategory matching
+                if (product.categoryLower === query) score += 5;
+                else if (categoryMatch) score += 3;
+                if (product.subcategoryLower === query) score += 4;
+                else if (subcategoryMatch) score += 2;
+
+                // Word boundary matching for category/subcategory
+                if (product.categoryLower.split(' ').some(word => word.startsWith(query))) score += 2;
+                if (product.subcategoryLower.split(' ').some(word => word.startsWith(query))) score += 1;
+                
+                return { ...product, score };
+            })
+            .filter(product => product.score > 0)
+            .sort((a, b) => b.score - a.score)
+            .slice(0, 10);
 
         if (results.length > 0) {
+            const searchResults = document.createElement('div');
+            searchResults.className = 'search-results';
+            
+            searchResults.innerHTML = `
+                <div class="search-summary">
+                    Found <span class="result-count">${results.length}</span> result${results.length === 1 ? '' : 's'} for "<span class="search-query">${query}</span>"
+                    <button class="close-search-results" aria-label="Close search results">×</button>
+                </div>
+            `;
+
             const resultsHTML = results.map(product => `
                 <div class="search-result-item">
                     <a href="product.html?section=${product.sectionSlug}&item=${encodeURIComponent(product.name)}">
-                        ${product.name} <span class="category-tag">${product.category}</span>
+                        <div class="result-content">
+                            <span class="result-name">${highlightMatch(product.name, query)}</span>
+                            <div class="result-metadata">
+                                <span class="category-tag">${product.category}</span>
+                                ${product.subcategory ? `<span class="subcategory-tag">${product.subcategory}</span>` : ''}
+                            </div>
+                        </div>
                     </a>
                 </div>
             `).join('');
 
-            const searchResults = document.createElement('div');
-            searchResults.className = 'search-results';
-            searchResults.innerHTML = resultsHTML;
+            searchResults.innerHTML += resultsHTML;
             
             const existingResults = document.querySelector('.search-results');
             if (existingResults) {
                 existingResults.remove();
             }
             
-            searchInput.parentNode.appendChild(searchResults);
+            const searchContainer = searchInput.parentNode;
+            searchContainer.appendChild(searchResults);
+
+            const closeButton = searchResults.querySelector('.close-search-results');
+            closeButton.addEventListener('click', () => searchResults.remove());
         }
+    }
+
+    // Updated highlight function to be case-insensitive
+    function highlightMatch(text, query) {
+        if (!query) return text;
+        const regex = new RegExp(`(${query})`, 'gi');
+        return text.replace(regex, '<mark>$1</mark>');
     }
 
     searchInput.addEventListener('keyup', (e) => {
@@ -694,86 +773,150 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-// Add these new styles to the existing CSS
+// Update the search results CSS for better positioning and visibility
 const style = document.createElement('style');
 style.textContent = `
+    .search-container {
+        position: relative;
+    }
+
     .search-results {
         position: absolute;
-        top: 100%;
-        left: 0;
+        top: calc(100% + 5px);
+        left: 50%;
+        transform: translateX(-50%);
         width: 100%;
+        min-width: 300px;
+        max-width: 600px;
         background: white;
         border: 1px solid #ddd;
-        border-radius: 4px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         z-index: 1000;
-        max-height: 300px;
+        max-height: 400px;
         overflow-y: auto;
+        margin-top: 2px;
+    }
+
+    .search-summary {
+        padding: 12px 15px;
+        background: #2b3990;
+        color: white;
+        border-bottom: 1px solid #ddd;
+        font-size: 1.1em;
+        font-weight: 500;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 8px 8px 0 0;
+        letter-spacing: 0.3px;
+    }
+
+    .search-summary span.result-count {
+        color: #ffd700;
+        font-weight: 600;
+        padding: 2px 8px;
+        border-radius: 4px;
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .search-summary span.search-query {
+        color: #98fb98;
+        font-style: italic;
+        padding: 0 4px;
+    }
+
+    .close-search-results {
+        background: none;
+        border: none;
+        font-size: 1.4em;
+        cursor: pointer;
+        padding: 0 5px;
+        color: white;
+        transition: all 0.2s;
+        opacity: 0.9;
+    }
+
+    .close-search-results:hover {
+        opacity: 1;
+        transform: scale(1.1);
     }
 
     .search-result-item {
-        padding: 8px;
         border-bottom: 1px solid #eee;
+        transition: all 0.2s ease;
     }
 
     .search-result-item:last-child {
         border-bottom: none;
     }
 
+    .search-result-item:hover {
+        background-color: #f8f9fa;
+        transform: translateX(5px);
+    }
+
     .search-result-item a {
         text-decoration: none;
         color: #333;
+        padding: 12px 15px;
+        display: block;
+    }
+
+    .result-content {
         display: flex;
-        justify-content: space-between;
-        align-items: center;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .result-name {
+        font-weight: 500;
+        font-size: 1em;
+        color: #2b3990;
+    }
+
+    .result-metadata {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
     }
 
     .category-tag {
         background: #2b3990;
         color: white;
-        padding: 2px 6px;
+        padding: 4px 8px;
         border-radius: 12px;
         font-size: 0.8em;
+        transition: background-color 0.2s;
     }
 
-    .chat-message {
-        margin: 8px;
-        max-width: 80%;
-    }
-
-    .chat-message.user {
-        margin-left: auto;
-    }
-
-    .chat-message.support {
-        margin-right: auto;
-    }
-
-    .message-content {
-        background: #f5f5f5;
-        padding: 8px;
-        border-radius: 8px;
-    }
-
-    .user .message-content {
-        background: #2b3990;
+    .subcategory-tag {
+        background: #4CAF50;
         color: white;
-    }
-
-    .sender {
-        font-weight: bold;
+        padding: 4px 8px;
+        border-radius: 12px;
         font-size: 0.8em;
+        transition: background-color 0.2s;
     }
 
-    .time {
-        font-size: 0.7em;
-        color: #666;
-        display: block;
-        margin-top: 4px;
+    .category-tag:hover, .subcategory-tag:hover {
+        opacity: 0.9;
     }
 
-    .user .time {
-        color: #ddd;
+    mark {
+        background: #fff3cd;
+        color: #856404;
+        padding: 0 2px;
+        border-radius: 2px;
+    }
+
+    @media (max-width: 768px) {
+        .search-results {
+            width: calc(100vw - 40px);
+            left: 50%;
+            transform: translateX(-50%);
+            margin: 0 auto;
+        }
     }
 `;
 
