@@ -74,7 +74,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // Add custom subcategories for Equipment
     const customEquipmentSubcategories = [
         { id: "cardiology", name: "Cardiology", description: "Explore Cardiology" },
-        { id: "ophthalmology", name: "Ophthalmology", description: "Explore Ophthalmology" },
         { id: "respiratory", name: "Respiratory", description: "Explore Respiratory" },
         { id: "diagnostics", name: "Diagnostics", description: "Explore Diagnostics" },
         { id: "generalSurgery", name: "General Surgery", description: "Explore General Surgery" },

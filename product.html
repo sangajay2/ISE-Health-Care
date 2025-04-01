@@ -386,6 +386,60 @@
                 productsHTML += renderProduct(prod);
             });
             document.querySelector('.product-grid').innerHTML = productsHTML;
+        } else if (section === "sub" && item === "Bandages & Wound") {
+            const bandagesWoundProducts = [
+                { name: "Dressing", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/Dressing_fDE5aok.jpg?tr=w-150,q-60,f-avif", price: "Price not set" },
+                { name: "Surgical tape", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Surgical-tape.jpg?tr=w-150,q-60,f-avif", price: "Price not set" },
+                { name: "Bandage", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/Bandage_fQzLazH.jpg?tr=w-150,q-60,f-avif", price: "Price not set" },
+                { name: "Gauze swab", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/Gauze_Swab.jpg?tr=w-150,q-60,f-avif", price: "Price not set" }
+            ];
+            let productsHTML = "";
+            bandagesWoundProducts.forEach(prod => {
+                productsHTML += renderProduct(prod);
+            });
+            productGrid.innerHTML = productsHTML;
+        } else if (section === "sub" && item === "Cardiology") {
+            const cardiologyProducts = [
+                { name: "ECG Machine", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/ECG-Machine.jpg?tr=w-150,q-60,f-avif", price: "Price not set" },
+                { name: "Patient Monitor", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/Patient-Monitor.jpg?tr=w-150,q-60,f-avif", price: "Price not set" },
+                { name: "Defibrillator", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/Defibrillator_WsGTUN7.jpg?tr=w-150,q-60,f-avif", price: "Price not set" },
+                { name: "Patient Monitor Accessories", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/Patient-Monitor-Accessories.jpg?tr=w-150,q-60,f-avif", price: "Price not set" },
+                { name: "BPL Single Channel ECG Machine", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/95876350a6be49b79_MBBPLM0010.jpg?tr=w-126,q-60,f-avif", price: "Price not set" },
+                { name: "BPL Three Channel ECG Machine", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/bpl-three-channel-ecg-machine-cardiart-7108-17_02_2025-4fbc4d0a.jpg?tr=w-126,q-60,f-avif", price: "Price not set" }
+            ];
+            let productsHTML = "";
+            cardiologyProducts.forEach(prod => {
+                productsHTML += renderProduct(prod);
+            });
+            productGrid.innerHTML = productsHTML;
+        } else if (section === "sub" && item === "Ophthalmology") {
+            const ophthalmologyProducts = [
+                { name: "Sugra Led Acuity Vision Chart", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/42b22b00e6694debb_Screenshot_2024-11-04_122219-removebg-preview.png?tr=w-150,q-60,f-avif", price: "Price not set" },
+                { name: "Sugra Distance Vision Drum", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/d2ea1bc231e34371b_8.webp?tr=w-150,q-60,f-avif", price: "Price not set" },
+                { name: "Sugra Loose Prism Set", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/8f9d99798b7f4db7b_image.png?tr=w-150,q-60,f-avif", price: "Price not set" },
+                { name: "Sugra Led Vision Chart", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/aac25588a8464ecc9_led-vision-chart-768x879.webp?tr=w-150,q-60,f-avif", price: "Price not set" },
+                { name: "Sugra Trial Lens Set Golden and Silver", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/8e8385af3a654252b_image.png?tr=w-150,q-60,f-avif", price: "Price not set" },
+                { name: "Sugra Prism Bar Set", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/f237ae90243f4842b_51.webp?tr=w-150,q-60,f-avif", price: "Price not set" }
+            ];
+            let productsHTML = "";
+            ophthalmologyProducts.forEach(prod => {
+                productsHTML += renderProduct(prod);
+            });
+            productGrid.innerHTML = productsHTML;
+        } else if (section === "main" && item === "Ophthalmology") {
+            const ophthalmologyProducts = [
+                { name: "Sugra Led Acuity Vision Chart", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/42b22b00e6694debb_Screenshot_2024-11-04_122219-removebg-preview.png?tr=w-150,q-60,f-avif", price: "Price not set" },
+                { name: "Sugra Distance Vision Drum", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/d2ea1bc231e34371b_8.webp?tr=w-150,q-60,f-avif", price: "Price not set" },
+                { name: "Sugra Loose Prism Set", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/8f9d99798b7f4db7b_image.png?tr=w-150,q-60,f-avif", price: "Price not set" },
+                { name: "Sugra Led Vision Chart", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/aac25588a8464ecc9_led-vision-chart-768x879.webp?tr=w-150,q-60,f-avif", price: "Price not set" },
+                { name: "Sugra Trial Lens Set Golden and Silver", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/8e8385af3a654252b_image.png?tr=w-150,q-60,f-avif", price: "Price not set" },
+                { name: "Sugra Prism Bar Set", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/f237ae90243f4842b_51.webp?tr=w-150,q-60,f-avif", price: "Price not set" }
+            ];
+            let productsHTML = "";
+            ophthalmologyProducts.forEach(prod => {
+                productsHTML += renderProduct(prod);
+            });
+            productGrid.innerHTML = productsHTML;
         } else {
             // Simulate multiple product items (for example, 6 items) for this brand/procedure/product
             const numberOfProducts = 6;
