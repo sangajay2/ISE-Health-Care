@@ -442,6 +442,49 @@
                 productsHTML += renderProduct(prod);
             });
             document.querySelector('.product-grid').innerHTML = productsHTML;
+        } else if(section === "consumables-type" && item === "IV Cannula") {
+            const ivCannulaProducts = [
+                { 
+                    name: "Romsons Intra Cath",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/8d2e837f679042dfb_romsons_intra_cath_-_2.jpg?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "Veneport IV Cannula",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/27c5371d00084cea9_veneport.png?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "B Braun Vasofix IV Cannula",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/ad46d511f0364a859_bbraun-cannula-vasofix.jpg?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "Medivein IV Cannula",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/660ca4c7005f4abf9_img-20190906-wa0019-jpg-500x500.jpg?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "Meditech IV Cannula",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/b227d5fa103847e38_724.jpg?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "Neo Cath IV Cannula",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/ddfb137f288649fcb_neo_cath.png?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "BD Neoflon IV Cannula",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/949bce1dc43643989_bd-neoflon-iv-cannula.jpg?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                }
+            ];
+            let productsHTML = "";
+            ivCannulaProducts.forEach(prod => {
+                productsHTML += renderProduct(prod);
+            });
+            document.querySelector('.product-grid').innerHTML = productsHTML;
         } else if(section === "consumables-type" && item === "Generic") {
             const genericProducts = [
                 { 
