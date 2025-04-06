@@ -560,353 +560,16 @@
             });
             productGrid.innerHTML = productsHTML;
 
-        } else if(section === "dental-products" && item === "Diamond Burs") {
-            const diamondBursProducts = [
-                { 
-                    name: "Mani Straight Fissure (SF) Series Regular Shank Diamond Burs",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/b8d07d6d542548d39_mani_sf.png?tr=w-800,q-75,f-avif",
-                    price: "Price not set"
-                },
-                { 
-                    name: "Mani Taper Fissure (TF) Series Regular Shank Diamond Burs",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/eedb8640bc2a495e9_diamond_burs_fg_tf_1.jpg?tr=w-800,q-75,f-avif",
-                    price: "Price not set"
-                },
-                { 
-                    name: "Mani Ball Round (BR) Series Regular Shank Diamond Burs",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/3e5b803d322d48b6b_diamond_burs_fg_br_1.jpg?tr=w-800,q-75,f-avif",
-                    price: "Price not set"
-                },
-                { 
-                    name: "Mani Taper Round End (TR) Series Regular Shank Diamond Burs",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/cc0d21db7c7d497bb_diamond_burs_fg_tr_1cs.jpg?tr=w-800,q-75,f-avif",
-                    price: "Price not set"
-                },
-                { 
-                    name: "Mani Extra Shape (EX) (Special) Series Regular Shank Diamond Burs",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/70b381fe6edb4fda8_diamond_burs_fg_tc_1.jpg?tr=w-126,q-60,f-avif",
-                    price: "Price not set"
-                },
-                { 
-                    name: "Mani Taper Conical End (TC) Series Regular Shank Diamond Burs",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/f9881c99977746689_diamond_burs_fg_ex_1.jpg?tr=w-126,q-60,f-avif",
-                    price: "Price not set"
-                }
-            ];
-            let productsHTML = "";
-            diamondBursProducts.forEach(prod => {
-                productsHTML += renderProduct(prod);
-            });
-            document.querySelector('.product-grid').innerHTML = productsHTML;
-        } else if(section === "dental-products" && item === "NiTi Rotary Files") {
-            const nitiRotaryFilesProducts = [
-                { 
-                    name: "Neoendo Flex Assorted NiTi Rotary Files",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/e53b72e7435a4d7f8_Flex-file-1-1.png?tr=w-800,q-75,f-avif",
-                    price: "Price not set"
-                },
-                { 
-                    name: "Neoendo S Refills NiTi Rotary Files",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/7696483b9461411ca_Neoendo-s-1.png?tr=w-126,q-60,f-avif",
-                    price: "Price not set"
-                },
-                { 
-                    name: "Neoendo NeoBlue Refills NiTi Rotary Files",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/64d4bfdaa5704675a_Neoblue-1.png?tr=w-126,q-60,f-avif",
-                    price: "Price not set"
-                },
-                { 
-                    name: "Dentsply ProTaper Gold Refills NiTi Rotary Files",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/13e05872a2b5452b9_PROTAPERGRF_1.jpg?tr=w-126,q-60,f-avif",
-                    price: "Price not set"
-                },
-                { 
-                    name: "NT Rainbow S Assorted NiTi Rotary Files",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/70b148fec45d47e78_NT_Rainbow_S_Assorted_NiTi_Rotary_Files_-_25mm.1.webp?tr=w-126,q-60,f-avif",
-                    price: "Price not set"
-                },
-                { 
-                    name: "Neoendo Retreatment NiTi Rotary Files",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/neoendo-retreatment-niti-rotary-files-22mm-11_02_2025-a5e62c8f.jpg?tr=w-126,q-60,f-avif",
-                    price: "Price not set"
-                }
-            ];
-            let productsHTML = "";
-            nitiRotaryFilesProducts.forEach(prod => {
-                productsHTML += renderProduct(prod);
-            });
-            document.querySelector('.product-grid').innerHTML = productsHTML;
-        } else if(section === "dental-products" && item === "Restorative Glass Ionomer Cements") {
-            const restorativeGICProducts = [
-                { 
-                    name: "GC Gold Label 2 / Fuji II (Powder-Liquid) Restorative GIC",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/befea66f7f9649f8b_MBDDFCCZTEEOED5PAE8Y.jpeg?tr=w-126,q-60,f-avif",
-                    price: "Price not set"
-                },
-                { 
-                    name: "GC Gold Label 9 Extra / Fuji IX Extra (Powder-Liquid) Restorative GIC",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/1923dd73e6d14bbda_gc-extra-big_pack.webp?tr=w-126,q-60,f-avif",
-                    price: "Price not set"
-                },
-                { 
-                    name: "3M Ketac Molar ART Restorative GIC",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/6a92dcb8fbd64ac6a_MBADT0068.jpeg?tr=w-126,q-60,f-avif",
-                    price: "Price not set"
-                },
-                { 
-                    name: "D-Tech Restore Glass Restorative GIC",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/46c4d675159b478ba_1.jpg?tr=w-126,q-60,f-avif",
-                    price: "Price not set"
-                },
-                { 
-                    name: "GC Gold Label Hybrid Restorative GIC",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/ff0a9f1038484cd18_gc-gold-label-hybrid-restorative-cement-a2.jpg?tr=w-126,q-60,f-avif",
-                    price: "Price not set"
-                },
-                { 
-                    name: "Shofu Glasionomer Fx Ultra Mini",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/feecd1f4b8dc44a4a_image.png?tr=w-126,q-60,f-avif",
-                    price: "Price not set"
-                }
-            ];
-            let productsHTML = "";
-            restorativeGICProducts.forEach(prod => {
-                productsHTML += renderProduct(prod);
-            });
-            document.querySelector('.product-grid').innerHTML = productsHTML;
-        } else if(section === "dental-products" && item === "Calcium Hydroxide Pastes") {
-            const calciumHydroxideProducts = [
-                { 
-                    name: "Avue Calcium Hydroxide Paste",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/375f490b573f4835b_AvueCal-1024x1024.png?tr=w-126,q-60,f-avif",
-                    price: "Price not set"
-                },
-                { 
-                    name: "Prime Dental RC Cal Calcium Hydroxide Pastes",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/feecfcb83b2441d09_1.jpg?tr=w-126,q-60,f-avif",
-                    price: "Price not set"
-                },
-                { 
-                    name: "Orikam NeoPex Calcium Hydroxide Pastes",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/766327601da44e3aa_Chem-NeoPex-a-2-725x1024.png?tr=w-126,q-60,f-avif",
-                    price: "Price not set"
-                },
-                { 
-                    name: "Voco Calcimol Calcium Hydroxide Pastes",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/84c200fdd9c648138_mbvo0003.jpg?tr=w-126,q-60,f-avif",
-                    price: "Price not set"
-                },
-                { 
-                    name: "Dentsply Dycal Calcium Hydroxide Pastes",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/609337caba4443848_Dentsply_Dycal_Calcium_Hydroxide_Pastes_-_Refill_Ivory4.webp?tr=w-126,q-60,f-avif",
-                    price: "Price not set"
-                },
-                { 
-                    name: "Orikam NeoCal Calcium Hydroxide Pastes",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/e809df6ff02c409e8_neocal-3.jpg?tr=w-126,q-60,f-avif",
-                    price: "Price not set"
-                }
-            ];
-            let productsHTML = "";
-            calciumHydroxideProducts.forEach(prod => {
-                productsHTML += renderProduct(prod);
-            });
-            document.querySelector('.product-grid').innerHTML = productsHTML;
-        } else if(section === "dental-products" && item === "Dental Waxes") {
-            const dentalWaxesProducts = [
-                { 
-                    name: "DPI Modelling Wax Dental Wax",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/b7a191582ad34899b_DPI_Modelling_Wax_Dental_Wax.3.jpeg?tr=w-126,q-60,f-avif",
-                    price: "Price not set"
-                },
-                { 
-                    name: "MDM Y-Dent's Modelling Dental Wax",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/090656b7bbdc42818_mdm_modelling_wax.jpg?tr=w-126,q-60,f-avif",
-                    price: "Price not set"
-                },
-                { 
-                    name: "MAARC Spacer Dental Wax",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/a92609dafce045e7b_spacer_wax.jpg?tr=w-126,q-60,f-avif",
-                    price: "Price not set"
-                },
-                { 
-                    name: "Deepti Dental Modelling Dental Wax",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/4fae3d8305114027a_Deepti_Dental_Modelling_Dental_Wax_-_12_Pieces.1.png?tr=w-126,q-60,f-avif",
-                    price: "Price not set"
-                },
-                { 
-                    name: "MAARC Carving Dental Wax",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/4c6c18fe0f344f14b_maarc_carving_wax_-_white.jpg?tr=w-126,q-60,f-avif",
-                    price: "Price not set"
-                },
-                { 
-                    name: "MAARC Bite Registration Dental Wax",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/b262d34fbe4c45d38_MAARC_Bite_Registration_Dental_Wax_-_10_Sheet.1.png?tr=w-126,q-60,f-avif",
-                    price: "Price not set"
-                }
-            ];
-            let productsHTML = "";
-            dentalWaxesProducts.forEach(prod => {
-                productsHTML += renderProduct(prod);
-            });
-            document.querySelector('.product-grid').innerHTML = productsHTML;
-        } else if(section === "dental-products" && item === "Elastomeric Impression Materials") {
-            const elastomericProducts = [
-                { 
-                    name: "Elastomeric Impression Materials 1",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/6c4480802cbe4f298_Zetaplus-Indurent-Gel-Catalyst-60ml.jpg?tr=w-126,q-60,f-avif",
-                    price: "Price not set"
-                },
-                { 
-                    name: "Elastomeric Impression Materials 2",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/225bfac50fbd41fd9_Zetaplus_C100600-2.jpg?tr=w-126,q-60,f-avif",
-                    price: "Price not set"
-                },
-                { 
-                    name: "Elastomeric Impression Materials 3",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/90b9964534fc4d328_OL.JPG?tr=w-126,q-60,f-avif",
-                    price: "Price not set"
-                },
-                { 
-                    name: "Elastomeric Impression Materials 4",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/03c93dfc47ae48e8a_Zhermack_Zetaplus_VL_Intro_Kit_Elastomeric_Impression_Material.1.jpeg?tr=w-126,q-60,f-avif",
-                    price: "Price not set"
-                },
-                { 
-                    name: "Elastomeric Impression Materials 5",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/b8a5090c609d49b1b_Orikam_Neopure_A-silicone_Light_Body_Elastomeric_Impression_Material.1.webp?tr=w-126,q-60,f-avif",
-                    price: "Price not set"
-                },
-                { 
-                    name: "Elastomeric Impression Materials 6",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/b134fc45b10649668_speedex-900x9002.webp?tr=w-126,q-60,f-avif",
-                    price: "Price not set"
-                }
-            ];
-            let productsHTML = "";
-            elastomericProducts.forEach(prod => {
-                productsHTML += renderProduct(prod);
-            });
-            document.querySelector('.product-grid').innerHTML = productsHTML;
-        } else if(section === "dental-products" && item === "High-Speed Handpieces") {
-            const handpiecesProducts = [
-                { 
-                    name: "Apple Dental Push-Button Airotor High-Speed Handpiece",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/870f5920d6f44e099_appledenatl-su13.jpg?tr=w-126,q-60,f-avif",
-                    price: "Price not set"
-                },
-                { 
-                    name: "Being Foshan Air Rotor Turbine Lotus 403-B2 High-Speed Handpiece",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/ae0409bf583247f2a_mbdnt0407240164300000.jpg?tr=w-126,q-60,f-avif",
-                    price: "Price not set"
-                },
-                { 
-                    name: "APL Super Torque High-Speed Handpiece",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/f4aba9173b794c26a_mbjkm1811201164_2.jpg?tr=w-126,q-60,f-avif",
-                    price: "Price not set"
-                },
-                { 
-                    name: "Eko Dental High-Speed Handpiece",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/eko-dental-high-speed-handpiece-chuck-type-11_02_2025-f29f8391.png?tr=w-126,q-60,f-avif",
-                    price: "Price not set"
-                },
-                { 
-                    name: "NSK S-Max M95L High-Speed Handpiece",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/98e5256f4ef843d0b_18_S-MAX-M95L-1-1200x675.jpg?tr=w-126,q-60,f-avif",
-                    price: "Price not set"
-                },
-                { 
-                    name: "Orikam Patented Bur-Lock Technology High-Speed Handpiece",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/57e71cc6f3144f4bb_Orikam_Patented_Bur-Lock_Technology_High-Speed_Handpiece_-_J1.1.jpeg?tr=w-126,q-60,f-avif",
-                    price: "Price not set"
-                }
-            ];
-            let productsHTML = "";
-            handpiecesProducts.forEach(prod => {
-                productsHTML += renderProduct(prod);
-            });
-            document.querySelector('.product-grid').innerHTML = productsHTML;
-        } else if(section === "dental-products" && item === "Dental Autoclaves") {
-            const autoclaveProducts = [
-                { 
-                    name: "GDP Ishiklave 13 Litres Top-loading Semi Automatic Autoclave",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/6b7bc983106d43338_ishiclave.jpg?tr=w-126,q-60,f-avif",
-                    price: "Price not set"
-                },
-                { 
-                    name: "GDP Uniklave Plus 2 13.5 Litres Top-loading Fully Automatic Autoclave",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/bc36af5903f249b9b_Top-Loading-Automatic-Autoclave-Uniclave-Plus.jpg?tr=w-126,q-60,f-avif",
-                    price: "Price not set"
-                },
-                { 
-                    name: "GDP Uniklave Mini 10 Litres Top-loading Fully Automatic Autoclave",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/11ce240af41e4ebe9_Toploading-Automatic-Autoclave-Uniclave-Mini-500x500.jpg?tr=w-126,q-60,f-avif",
-                    price: "Price not set"
-                },
-                { 
-                    name: "Woson Tanda B Class Autoclave",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/46b9d29e3a254cebb_woson4probigpic.jpg?tr=w-126,q-60,f-avif",
-                    price: "Price not set"
-                },
-                { 
-                    name: "Thymol Table Top Dental Autoclaves",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/872be879b34a48169_image.png?tr=w-126,q-60,f-avif",
-                    price: "Price not set"
-                },
-                { 
-                    name: "Runyes FENG Class B Autoclave",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/cb6f986663384c4a9_59a2eae712224d429_WhatsApp-Image-2024-05-28-at-11.36.52-AM_base_image.jpeg?tr=w-126,q-60,f-avif",
-                    price: "Price not set"
-                }
-            ];
-            let productsHTML = "";
-            autoclaveProducts.forEach(prod => {
-                productsHTML += renderProduct(prod);
-            });
-            document.querySelector('.product-grid').innerHTML = productsHTML;
-        } else if(section === "dental-products" && item === "Dental Etchants") {
-            const dentalEtchantsProducts = [
-                { 
-                    name: "Free Dental Surprise",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/free-dental-surprise-gift-14_02_2025-7c64e237.png?tr=w-126,q-60,f-avif",
-                    price: "Price not set"
-                },
-                { 
-                    name: "Prime Dental Etching Gel Etchant",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/8012de797f5b40578_etching-gel-500x500.jpg?tr=w-126,q-60,f-avif",
-                    price: "Price not set"
-                },
-                { 
-                    name: "D-Tech Gel Etchant",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/94b1b2deaf154d9ba_MBTC11TSCLSDEDT07JT1.jpg?tr=w-126,q-60,f-avif",
-                    price: "Price not set"
-                },
-                { 
-                    name: "SafeEndo Smart Etch Etchant",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/1b754077295644909_Etchtant-25ml.jpg?tr=w-126,q-60,f-avif",
-                    price: "Price not set"
-                },
-                { 
-                    name: "Anabond Stedman Eazetch Etchant",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/944d4ad30dc24f08a_Anabond_Stedman_Eazetch_Etchant_-_5gm_Pack_of_1_Syringe_1.webp?tr=w-126,q-60,f-avif",
-                    price: "Price not set"
-                },
-                { 
-                    name: "Ammdent Frost Etchant",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/59133693dcd948208_Ammdent_Frost_Etchant_Pack_of_1_Syringe.1.png?tr=w-126,q-60,f-avif",
-                    price: "Price not set"
-                }
-            ];
-            let productsHTML = "";
-            dentalEtchantsProducts.forEach(prod => {
-                productsHTML += renderProduct(prod);
-            });
-            document.querySelector('.product-grid').innerHTML = productsHTML;
-        } else if(section === "dental-procedures" && item === "Pedodontic Restoration") {
-            const pedodonticRestorationProducts = [
+        } else if(section === "dental-procedures" && item === "Crown & Bridge") {
+            const crownAndBridgeProducts = [
                 { 
                     name: "Mani Straight Fissure (SF) Series Regular Shank Diamond Burs",
                     image: "https://ik.imagekit.io/z6mqjyyzz/media/public/b8d07d6d542548d39_mani_sf.png?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "Zhermack Tropicalgin Dental Alginate",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/be82d85ff0b84ca1b_tropicalgin.jpg?tr=w-126,q-60,f-avif",
                     price: "Price not set"
                 },
                 { 
@@ -920,28 +583,23 @@
                     price: "Price not set"
                 },
                 { 
-                    name: "GC Gold Label 2 / Fuji II (Powder-Liquid) Restorative GIC",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/befea66f7f9649f8b_MBDDFCCZTEEOED5PAE8Y.jpeg?tr=w-126,q-60,f-avif",
+                    name: "Prime Dental Algingum Dental Alginate",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/9ec153f5baf44c198_MBLPILLSCLSDEDJCO247.png?tr=w-126,q-60,f-avif",
                     price: "Price not set"
                 },
                 { 
-                    name: "GC Gold Label 9 Extra / Fuji IX Extra (Powder-Liquid) Restorative GIC",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/1923dd73e6d14bbda_gc-extra-big_pack.webp?tr=w-126,q-60,f-avif",
-                    price: "Price not set"
-                },
-                { 
-                    name: "3M Ketac Molar ART Restorative GIC",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/6a92dcb8fbd64ac6a_MBADT0068.jpeg?tr=w-126,q-60,f-avif",
+                    name: "DPI Algitex Dental Alginate",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/3346936a13444122b_algitex-1.JPG?tr=w-126,q-60,f-avif",
                     price: "Price not set"
                 }
             ];
             let productsHTML = "";
-            pedodonticRestorationProducts.forEach(prod => {
+            crownAndBridgeProducts.forEach(prod => {
                 productsHTML += renderProduct(prod);
             });
             document.querySelector('.product-grid').innerHTML = productsHTML;
-        } else if(section === "dental-procedures" && item === "Composite Restoration") {
-            const compositeRestorationProducts = [
+        } else if(section === "dental-procedures" && item === "Amalgam Restoration") {
+            const amalgamRestorationProducts = [
                 { 
                     name: "Mani Straight Fissure (SF) Series Regular Shank Diamond Burs",
                     image: "https://ik.imagekit.io/z6mqjyyzz/media/public/b8d07d6d542548d39_mani_sf.png?tr=w-126,q-60,f-avif",
@@ -974,15 +632,20 @@
                 }
             ];
             let productsHTML = "";
-            compositeRestorationProducts.forEach(prod => {
+            amalgamRestorationProducts.forEach(prod => {
                 productsHTML += renderProduct(prod);
             });
             document.querySelector('.product-grid').innerHTML = productsHTML;
-        } else if(section === "dental-procedures" && item === "GIC Restorations") {
-            const gicRestorationsProducts = [
+        } else if(section === "dental-procedures" && item === "Crown Preparation") {
+            const crownPreparationProducts = [
                 { 
                     name: "Mani Straight Fissure (SF) Series Regular Shank Diamond Burs",
                     image: "https://ik.imagekit.io/z6mqjyyzz/media/public/b8d07d6d542548d39_mani_sf.png?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "Zhermack Tropicalgin Dental Alginate",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/be82d85ff0b84ca1b_tropicalgin.jpg?tr=w-126,q-60,f-avif",
                     price: "Price not set"
                 },
                 { 
@@ -996,61 +659,18 @@
                     price: "Price not set"
                 },
                 { 
-                    name: "GC Gold Label 2 / Fuji II (Powder-Liquid) Restorative GIC",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/befea66f7f9649f8b_MBDDFCCZTEEOED5PAE8Y.jpeg?tr=w-126,q-60,f-avif",
+                    name: "Prime Dental Algingum Dental Alginate",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/9ec153f5baf44c198_MBLPILLSCLSDEDJCO247.png?tr=w-126,q-60,f-avif",
                     price: "Price not set"
                 },
                 { 
-                    name: "GC Gold Label 9 Extra / Fuji IX Extra (Powder-Liquid) Restorative GIC",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/1923dd73e6d14bbda_gc-extra-big_pack.webp?tr=w-126,q-60,f-avif",
-                    price: "Price not set"
-                },
-                { 
-                    name: "3M Ketac Molar ART Restorative GIC",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/6a92dcb8fbd64ac6a_MBADT0068.jpeg?tr=w-126,q-60,f-avif",
+                    name: "DPI Algitex Dental Alginate",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/3346936a13444122b_algitex-1.JPG?tr=w-126,q-60,f-avif",
                     price: "Price not set"
                 }
             ];
             let productsHTML = "";
-            gicRestorationsProducts.forEach(prod => {
-                productsHTML += renderProduct(prod);
-            });
-            document.querySelector('.product-grid').innerHTML = productsHTML;
-        } else if(section === "dental-procedures" && item === "Temporary Restorations") {
-            const temporaryRestorationsProducts = [
-                { 
-                    name: "Mani Straight Fissure (SF) Series Regular Shank Diamond Burs",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/b8d07d6d542548d39_mani_sf.png?tr=w-126,q-60,f-avif",
-                    price: "Price not set"
-                },
-                { 
-                    name: "Mani Taper Fissure (TF) Series Regular Shank Diamond Burs",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/eedb8640bc2a495e9_diamond_burs_fg_tf_1.jpg?tr=w-126,q-60,f-avif",
-                    price: "Price not set"
-                },
-                { 
-                    name: "Mani Ball Round (BR) Series Regular Shank Diamond Burs",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/3e5b803d322d48b6b_diamond_burs_fg_br_1.jpg?tr=w-126,q-60,f-avif",
-                    price: "Price not set"
-                },
-                { 
-                    name: "Mani Taper Round End (TR) Series Regular Shank Diamond Burs",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/cc0d21db7c7d497bb_diamond_burs_fg_tr_1cs.jpg?tr=w-126,q-60,f-avif",
-                    price: "Price not set"
-                },
-                { 
-                    name: "Mani Extra Shape (EX) (Special) Series Regular Shank Diamond Burs",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/f9881c99977746689_diamond_burs_fg_ex_1.jpg?tr=w-126,q-60,f-avif",
-                    price: "Price not set"
-                },
-                { 
-                    name: "Mani Taper Conical End (TC) Series Regular Shank Diamond Burs",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/70b381fe6edb4fda8_diamond_burs_fg_tc_1.jpg?tr=w-126,q-60,f-avif",
-                    price: "Price not set"
-                }
-            ];
-            let productsHTML = "";
-            temporaryRestorationsProducts.forEach(prod => {
+            crownPreparationProducts.forEach(prod => {
                 productsHTML += renderProduct(prod);
             });
             document.querySelector('.product-grid').innerHTML = productsHTML;
