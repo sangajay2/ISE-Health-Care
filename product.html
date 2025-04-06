@@ -674,6 +674,44 @@
                 productsHTML += renderProduct(prod);
             });
             document.querySelector('.product-grid').innerHTML = productsHTML;
+        } else if(section === "dental-products" && item === "Calcium Hydroxide Pastes") {
+            const calciumHydroxideProducts = [
+                { 
+                    name: "Avue Calcium Hydroxide Paste",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/375f490b573f4835b_AvueCal-1024x1024.png?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "Prime Dental RC Cal Calcium Hydroxide Pastes",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/feecfcb83b2441d09_1.jpg?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "Orikam NeoPex Calcium Hydroxide Pastes",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/766327601da44e3aa_Chem-NeoPex-a-2-725x1024.png?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "Voco Calcimol Calcium Hydroxide Pastes",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/84c200fdd9c648138_mbvo0003.jpg?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "Dentsply Dycal Calcium Hydroxide Pastes",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/609337caba4443848_Dentsply_Dycal_Calcium_Hydroxide_Pastes_-_Refill_Ivory4.webp?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "Orikam NeoCal Calcium Hydroxide Pastes",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/e809df6ff02c409e8_neocal-3.jpg?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                }
+            ];
+            let productsHTML = "";
+            calciumHydroxideProducts.forEach(prod => {
+                productsHTML += renderProduct(prod);
+            });
+            document.querySelector('.product-grid').innerHTML = productsHTML;
         } else {
             // Simulate multiple product items (for example, 6 items) for this brand/procedure/product
             const numberOfProducts = 6;
