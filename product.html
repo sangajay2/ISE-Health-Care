@@ -636,6 +636,44 @@
                 productsHTML += renderProduct(prod);
             });
             document.querySelector('.product-grid').innerHTML = productsHTML;
+        } else if(section === "dental-products" && item === "Restorative Glass Ionomer Cements") {
+            const restorativeGICProducts = [
+                { 
+                    name: "GC Gold Label 2 / Fuji II (Powder-Liquid) Restorative GIC",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/befea66f7f9649f8b_MBDDFCCZTEEOED5PAE8Y.jpeg?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "GC Gold Label 9 Extra / Fuji IX Extra (Powder-Liquid) Restorative GIC",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/1923dd73e6d14bbda_gc-extra-big_pack.webp?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "3M Ketac Molar ART Restorative GIC",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/6a92dcb8fbd64ac6a_MBADT0068.jpeg?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "D-Tech Restore Glass Restorative GIC",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/46c4d675159b478ba_1.jpg?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "GC Gold Label Hybrid Restorative GIC",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/ff0a9f1038484cd18_gc-gold-label-hybrid-restorative-cement-a2.jpg?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "Shofu Glasionomer Fx Ultra Mini",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/feecd1f4b8dc44a4a_image.png?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                }
+            ];
+            let productsHTML = "";
+            restorativeGICProducts.forEach(prod => {
+                productsHTML += renderProduct(prod);
+            });
+            document.querySelector('.product-grid').innerHTML = productsHTML;
         } else {
             // Simulate multiple product items (for example, 6 items) for this brand/procedure/product
             const numberOfProducts = 6;
