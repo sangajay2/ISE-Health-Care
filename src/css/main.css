@@ -376,3 +376,18 @@ main {
   display: block;
   margin: 0 auto;
 }
+
+.app-content-hidden {
+    display: none;
+}
+
+.products-dropdown-hidden {
+    display: none;
+}
+
+.chat-close-btn {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}

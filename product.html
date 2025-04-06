@@ -560,6 +560,82 @@
             });
             productGrid.innerHTML = productsHTML;
 
+        } else if(section === "dental-products" && item === "Diamond Burs") {
+            const diamondBursProducts = [
+                { 
+                    name: "Mani Straight Fissure (SF) Series Regular Shank Diamond Burs",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/b8d07d6d542548d39_mani_sf.png?tr=w-800,q-75,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "Mani Taper Fissure (TF) Series Regular Shank Diamond Burs",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/eedb8640bc2a495e9_diamond_burs_fg_tf_1.jpg?tr=w-800,q-75,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "Mani Ball Round (BR) Series Regular Shank Diamond Burs",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/3e5b803d322d48b6b_diamond_burs_fg_br_1.jpg?tr=w-800,q-75,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "Mani Taper Round End (TR) Series Regular Shank Diamond Burs",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/cc0d21db7c7d497bb_diamond_burs_fg_tr_1cs.jpg?tr=w-800,q-75,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "Mani Extra Shape (EX) (Special) Series Regular Shank Diamond Burs",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/70b381fe6edb4fda8_diamond_burs_fg_tc_1.jpg?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "Mani Taper Conical End (TC) Series Regular Shank Diamond Burs",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/f9881c99977746689_diamond_burs_fg_ex_1.jpg?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                }
+            ];
+            let productsHTML = "";
+            diamondBursProducts.forEach(prod => {
+                productsHTML += renderProduct(prod);
+            });
+            document.querySelector('.product-grid').innerHTML = productsHTML;
+        } else if(section === "dental-products" && item === "NiTi Rotary Files") {
+            const nitiRotaryFilesProducts = [
+                { 
+                    name: "Neoendo Flex Assorted NiTi Rotary Files",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/e53b72e7435a4d7f8_Flex-file-1-1.png?tr=w-800,q-75,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "Neoendo S Refills NiTi Rotary Files",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/7696483b9461411ca_Neoendo-s-1.png?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "Neoendo NeoBlue Refills NiTi Rotary Files",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/64d4bfdaa5704675a_Neoblue-1.png?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "Dentsply ProTaper Gold Refills NiTi Rotary Files",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/13e05872a2b5452b9_PROTAPERGRF_1.jpg?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "NT Rainbow S Assorted NiTi Rotary Files",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/70b148fec45d47e78_NT_Rainbow_S_Assorted_NiTi_Rotary_Files_-_25mm.1.webp?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "Neoendo Retreatment NiTi Rotary Files",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/neoendo-retreatment-niti-rotary-files-22mm-11_02_2025-a5e62c8f.jpg?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                }
+            ];
+            let productsHTML = "";
+            nitiRotaryFilesProducts.forEach(prod => {
+                productsHTML += renderProduct(prod);
+            });
+            document.querySelector('.product-grid').innerHTML = productsHTML;
         } else {
             // Simulate multiple product items (for example, 6 items) for this brand/procedure/product
             const numberOfProducts = 6;

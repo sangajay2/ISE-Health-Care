@@ -114,6 +114,22 @@
             border-radius: 5px;
             cursor: pointer;
         }
+
+        /* External CSS classes */
+        .app-content-hidden {
+            display: none;
+        }
+
+        .products-dropdown-hidden {
+            display: none;
+        }
+
+        .chat-close-btn {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -127,8 +143,8 @@
         </div>
     </div>
 
-    <!-- NEW: Wrap main content in a container hidden by default -->
-    <div id="app-content" style="display:none;">
+    <!-- NEW: Wrap main content in a container with external CSS class -->
+    <div id="app-content" class="app-content-hidden">
         <header>
             <nav class="main-nav">
                 <div class="logo"> ISE Health Care Demo </div>
@@ -163,8 +179,8 @@
                     </button>
                 </div>
             </div>
-            <!-- NEW: Products Dropdown Container -->
-            <div id="products-dropdown" class="dropdown" style="display:none;">
+            <!-- NEW: Products Dropdown Container with external CSS class -->
+            <div id="products-dropdown" class="dropdown products-dropdown-hidden">
                 <ul>
                     <li><a href="product.html?section=products&item=Hospital%20Medical%20Furniture">Hospital Medical Furniture</a></li>
                     <li><a href="product.html?section=products&item=Orthopaedic%20Implants">Orthopaedic Implants</a></li>
@@ -215,11 +231,11 @@
         <script src="src/js/navigation.js"></script>
     </div>
 
-    <!-- Add chat widget HTML -->
+    <!-- Add chat widget HTML with external CSS class -->
     <div class="chat-widget" id="chat-widget">
         <div class="chat-header">
             <span>Live Chat Support</span>
-            <button id="close-chat" style="background:none;border:none;color:white;cursor:pointer;">×</button>
+            <button id="close-chat" class="chat-close-btn">×</button>
         </div>
         <div class="chat-body" id="chat-body"></div>
         <div class="chat-input">
