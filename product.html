@@ -177,10 +177,11 @@
         </div>
     </main>
     <script>
+        const BASE_URL = 'http://localhost:8000';
         // Read query parameters
         const params = new URLSearchParams(window.location.search);
-        const section = params.get('section'); // e.g., brands, procedures, products, diagnostics-type, etc.
-        const item = params.get('item'); // e.g., one of the diagnostic product names
+        const section = params.get('section');
+        const item = params.get('item');
 
         const productDetails = document.getElementById('product-details');
         
@@ -190,10 +191,36 @@
             <p>Category: ${section}</p>
             <hr>
             <div class="product-grid"></div>
-            <a href="index.html">Back to Home</a>
+            <a href="${BASE_URL}/index.html">Back to Home</a>
+        `;
+
+        // Update breadcrumb navigation
+        document.querySelector('.breadcrumb-nav ol').innerHTML = `
+            <li><a href="${BASE_URL}/index.html">Home</a></li>
+            <li>${section}</li>
+            <li aria-current="page">${item}</li>
         `;
 
         const productGrid = document.querySelector('.product-grid');
+
+        // Helper function to render a product card
+        function renderProduct({ name, image, price }) {
+            return `
+                <div class="product-item">
+                    <div class="product-image-container">
+                        <img src="${image}" alt="${name}">
+                        <button class="quick-view-btn" onclick="showQuickView('${name}', '${image}', '${price}')">Quick View</button>
+                    </div>
+                    <h3>${name}</h3>
+                    <p>${price}</p>
+                    <div class="product-ratings">
+                        <div class="stars">★★★★☆</div>
+                        <span class="review-count">(4.0)</span>
+                    </div>
+                    <a href="${BASE_URL}/product.html?section=${section}&item=${encodeURIComponent(name)}">View Details</a>
+                </div>
+            `;
+        }
         
         if(section === "diagnostics-type") {
             // Use new diagnostics products data with explicit image links and "Price not set"
@@ -293,24 +320,42 @@
             productGrid.innerHTML = productsHTML;
         } else if(section === "consumables-type" && item === "Stethoscope") {
             const stethoscopes = [
-                { model: "Rossmax Sprague Rappaport Stethoscope", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/d3f4d9b59ed248f7b_eb500.png?tr=w-126,q-60,f-avif" },
-                { model: "3M Littmann Classic III (5806)", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/67fb3ff95ec64c4d8_5806.jpg?tr=w-126,q-60,f-avif" },
-                { model: "Microtone Stethoscope", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/02231f8ef9d14f0bb_7_Microtone_Stethoscope.jpg?tr=w-126,q-60,f-avif" },
-                { model: "MCP ELITE ST-EL01", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/6c4bcdfa3c0d433bb_51f8s7odzol._sl1500_.jpg?tr=w-126,q-60,f-avif" },
-                { model: "3M Littmann Lightweight II S.E. (2450)", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/454c2c06715e4bc3b_3M_Littmann_Classic_III_Monitoring_Stethoscope_5811_-_Smoke_Finish_Ch_mAHHztS.jpeg?tr=w-126,q-60,f-avif" },
-                { model: "Accusure Stethoscope", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/58bc4d21ca9d46ec8_ste_2.jpg?tr=w-126,q-60,f-avif" }
+                { 
+                    name: "Rossmax Sprague Rappaport Stethoscope",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/d3f4d9b59ed248f7b_eb500.png?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "3M Littmann Classic III (5806)",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/67fb3ff95ec64c4d8_5806.jpg?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "Microtone Stethoscope",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/02231f8ef9d14f0bb_7_Microtone_Stethoscope.jpg?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "MCP ELITE ST-EL01",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/6c4bcdfa3c0d433bb_51f8s7odzol._sl1500_.jpg?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "3M Littmann Lightweight II S.E. (2450)",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/454c2c06715e4bc3b_3M_Littmann_Classic_III_Monitoring_Stethoscope_5811_-_Smoke_Finish_Ch_mAHHztS.jpeg?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "Accusure Stethoscope",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/58bc4d21ca9d46ec8_ste_2.jpg?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                }
             ];
             let productsHTML = "";
-            stethoscopes.forEach(item => {
-                productsHTML += renderProduct({ name: item.model, image: item.image, price: "Price not set" });
+            stethoscopes.forEach(prod => {
+                productsHTML += renderProduct(prod);
             });
-            productDetails.innerHTML = `
-                <h1>Stethoscope</h1>
-                <p>Category: consumables-type</p>
-                <hr>
-                <div class="product-grid">${productsHTML}</div>
-                <a href="index.html">Back to Home</a>
-            `;
+            document.querySelector('.product-grid').innerHTML = productsHTML;
         } else if(section === "consumables-type" && item === "Forceps") {
             // Updated Forceps products for "Forceps" category
             const forcepsProducts = [

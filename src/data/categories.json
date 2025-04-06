@@ -6,13 +6,43 @@
         "description": "Medical Diagnostic Equipment & Devices"
     },
     {
+        "id": "2",
         "name": "Consumables",
         "image": "https://via.placeholder.com/200x200?text=Consumables",
-        "description": "Medical Consumables & Disposables"
+        "description": "Medical Consumables & Disposables",
+        "subcategories": [
+            {
+                "id": "consumables-type",
+                "name": "Explore by Type of Products",
+                "description": "Browse Medical Consumables by Type",
+                "items": [
+                    {
+                        "name": "Stethoscope",
+                        "image": "https://ik.imagekit.io/z6mqjyyzz/media/public/d3f4d9b59ed248f7b_eb500.png?tr=w-126,q-60,f-avif"
+                    },
+                    {
+                        "name": "Forceps",
+                        "image": "https://ik.imagekit.io/z6mqjyyzz/media/public/a52c2e7f3c8441fa9_Annotation_2023-06-09_141105.png?tr=w-126,q-60,f-avif"
+                    },
+                    {
+                        "name": "Trolley",
+                        "image": "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/image_HrSjsG3.png?tr=w-128,q-60,f-avif"
+                    },
+                    {
+                        "name": "Syringe with Needle",
+                        "image": "https://ik.imagekit.io/z6mqjyyzz/media/public/0d12662c241c4e1c8_image.png?tr=w-126,q-60,f-avif"
+                    },
+                    {
+                        "name": "Generic",
+                        "image": "https://ik.imagekit.io/z6mqjyyzz/media/public/9057d11c6bba40d18_image_1706.jpg?tr=w-126,q-60,f-avif"
+                    }
+                ]
+            }
+        ]
     },
     {
         "id": "3",
-        "name": "Equipment",
+        "name": "Equipment",    
         "image": "https://via.placeholder.com/200x200?text=Equipment",
         "description": "Hospital & Medical Equipment"
     },
