@@ -712,6 +712,44 @@
                 productsHTML += renderProduct(prod);
             });
             document.querySelector('.product-grid').innerHTML = productsHTML;
+        } else if(section === "dental-products" && item === "Dental Waxes") {
+            const dentalWaxesProducts = [
+                { 
+                    name: "DPI Modelling Wax Dental Wax",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/b7a191582ad34899b_DPI_Modelling_Wax_Dental_Wax.3.jpeg?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "MDM Y-Dent's Modelling Dental Wax",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/090656b7bbdc42818_mdm_modelling_wax.jpg?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "MAARC Spacer Dental Wax",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/a92609dafce045e7b_spacer_wax.jpg?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "Deepti Dental Modelling Dental Wax",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/4fae3d8305114027a_Deepti_Dental_Modelling_Dental_Wax_-_12_Pieces.1.png?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "MAARC Carving Dental Wax",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/4c6c18fe0f344f14b_maarc_carving_wax_-_white.jpg?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "MAARC Bite Registration Dental Wax",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/b262d34fbe4c45d38_MAARC_Bite_Registration_Dental_Wax_-_10_Sheet.1.png?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                }
+            ];
+            let productsHTML = "";
+            dentalWaxesProducts.forEach(prod => {
+                productsHTML += renderProduct(prod);
+            });
+            document.querySelector('.product-grid').innerHTML = productsHTML;
         } else {
             // Simulate multiple product items (for example, 6 items) for this brand/procedure/product
             const numberOfProducts = 6;
