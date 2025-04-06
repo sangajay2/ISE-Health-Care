@@ -1,8 +1,78 @@
 document.addEventListener("DOMContentLoaded", () => {
     // Add data arrays at the top of the file
     const brands = ["Denmax-ortho", "Bondent", "Mediair", "Denmax", "Apple-dent", "Orikam", "Gnatus", "Baolai", "Polodent", "3m", /* ...rest of brands... */];
-    const procedures = ["Restoration Carvers", "Periodontics", "Composite Restoration", /* ...rest of procedures... */];
-    const products = ["Nitrile Gloves", "Latex Gloves", "Dental Floss", /* ...rest of products... */];
+    const procedures = [
+        {
+            name: "Pedodontic Restoration",
+            image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/Procedures/Pedodontic_Restoration.png?tr=w-750,q-60,f-avif"
+        },
+        {
+            name: "Composite Restoration",
+            image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/Procedures/Composite_Restoration.png?tr=w-750,q-60,f-avif"
+        },
+        {
+            name: "GIC Restorations",
+            image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/Procedures/GIC_restorations.png?tr=w-750,q-60,f-avif"
+        },
+        {
+            name: "Temporary Restorations",
+            image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/Procedures/Temporary_Restorations.png?tr=w-750,q-60,f-avif"
+        },
+        {
+            name: "Pedodontic Pulp Treatment",
+            image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/Procedures/Pedodontic_Pulp_Treatment.png?tr=w-750,q-60,f-avif"
+        },
+        {
+            name: "Crown & Bridge",
+            image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/Procedures/Crown__Bridge.png?tr=w-750,q-60,f-avif"
+        },
+        {
+            name: "Crown Preparation",
+            image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/Procedures/Crown_Preparation.png?tr=w-750,q-60,f-avif"
+        },
+        {
+            name: "Amalgam Restoration",
+            image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/Procedures/Amalgam_Restoration.png"
+        }
+    ];
+    const products = [
+        {
+            name: "Diamond Burs",
+            image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/diamond-burs_AwaaUZW.png?tr=w-150,q-60,f-avif"
+        },
+        {
+            name: "NiTi Rotary Files",
+            image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/KontrolFlex-Rotary-File-Bend2.jpg?tr=w-150,q-60,f-avif"
+        },
+        {
+            name: "Restorative Glass Ionomer Cements",
+            image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/102.Restorative-Glass-Ionomer-Cements_rVgLvkf.png?tr=w-150,q-60,f-avif"
+        },
+        {
+            name: "Calcium Hydroxide Pastes",
+            image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/299.Calcium-Hydroxide-Pastes_8HzCXxU.png?tr=w-150,q-60,f-avif"
+        },
+        {
+            name: "Dental Waxes",
+            image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/24.Dental-Waxes_eqTYkmL.png?tr=w-150,q-60,f-avif"
+        },
+        {
+            name: "Elastomeric Impression Materials",
+            image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/70.Elastomeric-Impression-Materials_inb9kYS.png?tr=w-150,q-60,f-avif"
+        },
+        {
+            name: "High-Speed Handpieces",
+            image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/160.High-Speed-Handpieces_I7ddcRa.png?tr=w-150,q-60,f-avif"
+        },
+        {
+            name: "Dental Autoclaves",
+            image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/168.Dental-Autoclaves_LxJ6hrl.png?tr=w-150,q-60,f-avif"
+        },
+        {
+            name: "Dental Etchants",
+            image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/35.Dental-Etchants_IP7O2Y1.png?tr=w-150,q-60,f-avif"
+        }
+    ];
 
     // Add additional branch arrays for Diagnostics Instrument
     const diagnosticTypeProducts = [
@@ -149,6 +219,29 @@ document.addEventListener("DOMContentLoaded", () => {
         { name: "CPR", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/CPR.png?tr=w-128,q-60,f-avif" }
     ];
 
+    const dentalProducts = [
+        { name: "Diamond Burs", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/diamond-burs_AwaaUZW.png?tr=w-150,q-60,f-avif" },
+        { name: "NiTi Rotary Files", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/KontrolFlex-Rotary-File-Bend2.jpg?tr=w-150,q-60,f-avif" },
+        { name: "Restorative Glass Ionomer Cements", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/102.Restorative-Glass-Ionomer-Cements_rVgLvkf.png?tr=w-150,q-60,f-avif" },
+        { name: "Calcium Hydroxide Pastes", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/299.Calcium-Hydroxide-Pastes_8HzCXxU.png?tr=w-150,q-60,f-avif" },
+        { name: "Dental Waxes", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/24.Dental-Waxes_eqTYkmL.png?tr=w-150,q-60,f-avif" },
+        { name: "Elastomeric Impression Materials", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/70.Elastomeric-Impression-Materials_inb9kYS.png?tr=w-150,q-60,f-avif" },
+        { name: "High-Speed Handpieces", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/160.High-Speed-Handpieces_I7ddcRa.png?tr=w-150,q-60,f-avif" },
+        { name: "Dental Autoclaves", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/168.Dental-Autoclaves_LxJ6hrl.png?tr=w-150,q-60,f-avif" },
+        { name: "Dental Etchants", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/35.Dental-Etchants_IP7O2Y1.png?tr=w-150,q-60,f-avif" }
+    ];
+
+    const dentalProcedures = [
+        { name: "Pedodontic Restoration", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/Procedures/Pedodontic_Restoration.png?tr=w-750,q-60,f-avif" },
+        { name: "Composite Restoration", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/Procedures/Composite_Restoration.png?tr=w-750,q-60,f-avif" },
+        { name: "GIC Restorations", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/Procedures/GIC_restorations.png?tr=w-750,q-60,f-avif" },
+        { name: "Temporary Restorations", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/Procedures/Temporary_Restorations.png?tr=w-750,q-60,f-avif" },
+        { name: "Pedodontic Pulp Treatment", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/Procedures/Pedodontic_Pulp_Treatment.png?tr=w-750,q-60,f-avif" },
+        { name: "Crown & Bridge", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/Procedures/Crown__Bridge.png?tr=w-750,q-60,f-avif" },
+        { name: "Crown Preparation", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/Procedures/Crown_Preparation.png?tr=w-750,q-60,f-avif" },
+        { name: "Amalgam Restoration", image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/Procedures/Amalgam_Restoration.png" }
+    ];
+
     // Add the section mappings at the top with other constants
     const SECTION_MAPPINGS = {
         'diagnostic instruments': 'diagnostics-type',
@@ -269,6 +362,52 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function showSubcategories(category) {
         const categoriesSection = document.getElementById("categories");
+        
+        // Special handling for Dental category
+        if (category.name === "Dental" && category.subcategories[0].items) {
+            categoriesSection.innerHTML = `
+                <div class="breadcrumb">
+                    <a href="#" class="back-link">Back to Categories</a> > ${category.name}
+                </div>
+                <div class="product-sections">
+                    <div class="product-section">
+                        <h3>${category.subcategories[0].name}</h3>
+                        <ul class="product-list">
+                            ${category.subcategories[0].items.map(item => `
+                                <li>
+                                    <a href="product.html?section=dental-products&item=${encodeURIComponent(item.name)}">
+                                        <img src="${item.image}" alt="${item.name}" style="max-width:150px; height:auto;">
+                                        <br>${item.name}
+                                    </a>
+                                </li>
+                            `).join('')}
+                        </ul>
+                    </div>
+                    <div class="product-section">
+                        <h3>${category.subcategories[1].name}</h3>
+                        <ul class="product-list">
+                            ${category.subcategories[1].items.map(item => `
+                                <li>
+                                    <a href="product.html?section=dental-procedures&item=${encodeURIComponent(item.name)}">
+                                        <img src="${item.image}" alt="${item.name}" style="max-width:150px; height:auto;">
+                                        <br>${item.name}
+                                    </a>
+                                </li>
+                            `).join('')}
+                        </ul>
+                    </div>
+                </div>
+            `;
+
+            const backLink = categoriesSection.querySelector('.back-link');
+            backLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                location.reload();
+            });
+            return;
+        }
+
+        // Original code for other categories
         categoriesSection.innerHTML = `
             <div class="breadcrumb">
                 <a href="#" class="back-link">Back to Categories</a> > ${category.name}
@@ -425,9 +564,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     <h3>By Procedure</h3>
                     <ul class="product-list">
                         ${procedures.map(proc => `<li>
-                            <a href="product.html?section=procedures&item=${encodeURIComponent(proc)}">
-                                <img src="https://via.placeholder.com/150?text=${encodeURIComponent(proc)}" alt="${proc}">
-                                <br>${proc}
+                            <a href="product.html?section=procedures&item=${encodeURIComponent(proc.name)}">
+                                <img src="${proc.image}" alt="${proc.name}">
+                                <br>${proc.name}
                             </a>
                         </li>`).join('')}
                     </ul>
@@ -436,9 +575,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     <h3>By Products</h3>
                     <ul class="product-list">
                         ${products.map(product => `<li>
-                            <a href="product.html?section=products&item=${encodeURIComponent(product)}">
-                                <img src="https://via.placeholder.com/150?text=${encodeURIComponent(product)}" alt="${product}">
-                                <br>${product}
+                            <a href="product.html?section=products&item=${encodeURIComponent(product.name)}">
+                                <img src="${product.image}" alt="${product.name}">
+                                <br>${product.name}
                             </a>
                         </li>`).join('')}
                     </ul>
@@ -629,6 +768,8 @@ document.addEventListener("DOMContentLoaded", () => {
         addProducts(nephrologyProducts.map(p => p.name), 'Nephrology', 'main', 'Nephrology Products');
         addProducts(physiotherapyProducts.map(p => p.name), 'Physiotherapy', 'main', 'Physiotherapy Products');
         addProducts(refurbishedDevicesProducts.map(p => p.name), 'Refurbished Devices', 'main', 'Refurbished Products');
+        addProducts(dentalProducts.map(p => p.name), 'Dental', 'dental-products', 'Dental Products');
+        addProducts(dentalProcedures.map(p => p.name), 'Dental', 'dental-procedures', 'Dental Procedures');
 
         // Enhanced case-insensitive search with scoring
         const results = allProducts
@@ -929,57 +1070,6 @@ style.textContent = `
         color: white;
         padding: 4px 8px;
         border-radius: 12px;
-        font-size: 0.8em;
-        transition: background-color 0.2s;
-    }
-
-    .subcategory-tag {
-        background: #4CAF50;
-        color: white;
-        padding: 4px 8px;
-        border-radius: 12px;
-        font-size: 0.8em;
-        transition: background-color 0.2s;
-    }
-
-    .category-tag:hover, .subcategory-tag:hover {
-        opacity: 0.9;
-    }
-
-    mark {
-        background: #fff3cd;
-        color: #856404;
-        padding: 0 2px;
-        border-radius: 2px;
-    }
-
-    .product-list {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        gap: 20px;
-        padding: 20px;
-        list-style: none;
-    }
-
-    .product-list li {
-        text-align: center;
-        transition: transform 0.2s ease;
-        background: white;
-        border-radius: 8px;
-        padding: 15px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    }
-
-    .product-list li:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-
-    .product-list li a {
-        text-decoration: none;
-        color: #333;
-        display: flex;
-        flex-direction: column;
         align-items: center;
         gap: 10px;
     }

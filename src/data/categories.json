@@ -6,7 +6,6 @@
         "description": "Medical Diagnostic Equipment & Devices"
     },
     {
-        "id": "2",
         "name": "Consumables",
         "image": "https://via.placeholder.com/200x200?text=Consumables",
         "description": "Medical Consumables & Disposables"
@@ -44,53 +43,90 @@
     {
         "id": "8",
         "name": "Dental",
-        "image": "https://via.placeholder.com/200x200?text=Dental",
-        "description": "Dental Equipments Available at Medikabazaar",
+        "image": "https://www.dentistshorsham.co.uk/wp-content/uploads/2021/10/dental-health-care-blog.jpg.webp",
+        "description": "Dental Equipments",
         "subcategories": [
             {
-                "id": "endodontics",
-                "name": "Endodontics",
-                "description": "The dental specialty focusing on the diagnosis and treatment of dental pulp and surrounding tissues, commonly involving root canal therapy to save or repair damaged teeth."
+                "id": "dental-products",
+                "name": "Dental Products",
+                "description": "Essential Dental Equipment and Supplies",
+                "items": [
+                    {
+                        "name": "Diamond Burs",
+                        "image": "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/diamond-burs_AwaaUZW.png?tr=w-150,q-60,f-avif"
+                    },
+                    {
+                        "name": "NiTi Rotary Files",
+                        "image": "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/KontrolFlex-Rotary-File-Bend2.jpg?tr=w-150,q-60,f-avif"
+                    },
+                    {
+                        "name": "Restorative Glass Ionomer Cements",
+                        "image": "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/102.Restorative-Glass-Ionomer-Cements_rVgLvkf.png?tr=w-150,q-60,f-avif"
+                    },
+                    {
+                        "name": "Calcium Hydroxide Pastes",
+                        "image": "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/299.Calcium-Hydroxide-Pastes_8HzCXxU.png?tr=w-150,q-60,f-avif"
+                    },
+                    {
+                        "name": "Dental Waxes",
+                        "image": "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/24.Dental-Waxes_eqTYkmL.png?tr=w-150,q-60,f-avif"
+                    },
+                    {
+                        "name": "Elastomeric Impression Materials",
+                        "image": "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/70.Elastomeric-Impression-Materials_inb9kYS.png?tr=w-150,q-60,f-avif"
+                    },
+                    {
+                        "name": "High-Speed Handpieces",
+                        "image": "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/160.High-Speed-Handpieces_I7ddcRa.png?tr=w-150,q-60,f-avif"
+                    },
+                    {
+                        "name": "Dental Autoclaves",
+                        "image": "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/168.Dental-Autoclaves_LxJ6hrl.png?tr=w-150,q-60,f-avif"
+                    },
+                    {
+                        "name": "Dental Etchants",
+                        "image": "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/35.Dental-Etchants_IP7O2Y1.png?tr=w-150,q-60,f-avif"
+                    }
+                ]
             },
             {
-                "id": "restorative-materials",
-                "name": "Restorative Materials",
-                "description": "Dental materials used to restore the structure, function, and aesthetics of teeth, including fillings, crowns, and bridges."
-            },
-            {
-                "id": "dental-consumables",
-                "name": "Consumables",
-                "description": "Supplies regularly used in dental procedures, such as gloves, masks, bibs, and other disposable items essential for maintaining a sterile environment."
-            },
-            {
-                "id": "prosthodontics",
-                "name": "Prosthodontics",
-                "description": "The dental specialty involving the design, fabrication, and fitting of artificial replacements for missing teeth, including dentures, bridges, and dental implants."
-            },
-            {
-                "id": "orthodontics",
-                "name": "Orthodontics",
-                "description": "The specialty dealing with the diagnosis and correction of misalignments of teeth and jaws, often utilizing braces, aligners, and other orthodontic devices."
-            },
-            {
-                "id": "dental-equipment",
-                "name": "Dental Equipment",
-                "description": "Various instruments and machinery used in dental practices, including chairs, drills, X-ray machines, and other tools essential for diagnostic and treatment procedures."
-            },
-            {
-                "id": "periodontics",
-                "name": "Periodontics",
-                "description": "The dental specialty focused on the prevention, diagnosis, and treatment of diseases affecting the gums and supporting structures of the teeth."
-            },
-            {
-                "id": "dental-instruments",
-                "name": "Dental Instruments",
-                "description": "Tools used by dental professionals during examinations, surgeries, and procedures, ranging from diagnostic instruments to surgical implements."
-            },
-            {
-                "id": "trusted-names",
-                "name": "Trusted Names in Dental Care",
-                "description": "Reputable brands known for high-quality dental products. Brands include: 3M, Dentsply Sirona, Diadent, DenMax, and Mani, Inc."
+                "id": "dental-procedures",
+                "name": "Dental Procedures",
+                "description": "Common Dental Procedures and Treatments",
+                "items": [
+                    {
+                        "name": "Pedodontic Restoration",
+                        "image": "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/Procedures/Pedodontic_Restoration.png?tr=w-750,q-60,f-avif"
+                    },
+                    {
+                        "name": "Composite Restoration",
+                        "image": "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/Procedures/Composite_Restoration.png?tr=w-750,q-60,f-avif"
+                    },
+                    {
+                        "name": "GIC Restorations",
+                        "image": "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/Procedures/GIC_restorations.png?tr=w-750,q-60,f-avif"
+                    },
+                    {
+                        "name": "Temporary Restorations",
+                        "image": "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/Procedures/Temporary_Restorations.png?tr=w-750,q-60,f-avif"
+                    },
+                    {
+                        "name": "Pedodontic Pulp Treatment",
+                        "image": "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/Procedures/Pedodontic_Pulp_Treatment.png?tr=w-750,q-60,f-avif"
+                    },
+                    {
+                        "name": "Crown & Bridge",
+                        "image": "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/Procedures/Crown__Bridge.png?tr=w-750,q-60,f-avif"
+                    },
+                    {
+                        "name": "Crown Preparation",
+                        "image": "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/Procedures/Crown_Preparation.png?tr=w-750,q-60,f-avif"
+                    },
+                    {
+                        "name": "Amalgam Restoration",
+                        "image": "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/Procedures/Amalgam_Restoration.png"
+                    }
+                ]
             }
         ]
     }
