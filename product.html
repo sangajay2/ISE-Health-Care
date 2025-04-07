@@ -642,6 +642,49 @@
                 </div>
                 <a href="index.html">Back to Home</a>
             `;
+        } else if(section === "consumables-type" && item === "Lancet") {
+            const lancetProducts = [
+                { 
+                    name: "Accusure Blood Lancet",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/f1d25545fff34c31a_accu-sure-blood-lanets-dr-gene.jpg?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "EZ-Life Sterile Blood Lancet",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/7-x-ez-life-sterile-blood-lancet-flat-pack-of-100-pieces-14_02_2025-7e7d5adb.webp?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "Amkay Round Lancet",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/6dd0b3caa73645f4b_amkay_lancet_needle_plastic_.jpg?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "SW Health Care Blood Lancet Round Lancet",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/5-x-sw-health-care-blood-lancet-round-lancet-pack-of-100-pieces-14_02_2025-8ab48f20.webp?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "Amkay Flat Lancet",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/dcc40482246549c7a_Plastic_Lancet_round_page-0002.jpg?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "Accu-Chek Softclix Lancet",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/0e56b1ce285e40cfa_41dvio5EjdL._SX679_.jpg?tr=w-800,q-75,f-avif",
+                    price: "Price not set"
+                }
+            ];
+
+            productDetails.innerHTML = `
+                <h1>Lancet</h1>
+                <p>Category: ${section}</p>
+                <hr>
+                <div class="product-grid">
+                    ${lancetProducts.map(product => renderProduct(product)).join('')}
+                </div>
+                <a href="index.html">Back to Home</a>
+            `;
         } else if (section === "main" && item === "Ophthalmology") {
             const ophthalmologyProducts = [
                 {

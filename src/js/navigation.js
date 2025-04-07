@@ -127,7 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "Temporary Restoratives",
         "Dental Alginate",
         "Lancet",
-        "Mesh"
+        
     ];
     const medicalConsumablesSpecialities = [
         "General Consumable and Disposables",
@@ -138,7 +138,6 @@ document.addEventListener("DOMContentLoaded", () => {
         "Implantology",
         "Endodontics",
         "Hospital Furniture",
-        "Conservative Dentistry"
     ];
 
     // Add custom subcategories for Equipment
@@ -718,7 +717,7 @@ document.addEventListener("DOMContentLoaded", () => {
             "Temporary Restoratives": "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/105.Temporary-Restoratives_WHfvLm2.png?tr=w-150,q-60,f-avif",
             "Dental Alginate": "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/66.Dental-Alginate_oTfDgnK.png?tr=w-150,q-60,f-avif",
             "Lancet": "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/Lancet_vFbHoZN.jpg?tr=w-150,q-60,f-avif",
-            "Mesh": "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/Mesh_di8FgYq.jpg?tr=w-150,q-60,f-avif"
+            
         };
         const medicalConsumablesSpecialityImages = {
             "General Consumable and Disposables": "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/General_Consumable_and_Disposables.jpg?tr=w-150,q-60,f-avif",
@@ -729,7 +728,6 @@ document.addEventListener("DOMContentLoaded", () => {
             "Implantology": "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Frame_2.png?tr=w-150,q-60,f-avif",
             "Endodontics": "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/Specialities/Implantology.png?tr=w-150,q-60,f-avif",
             "Hospital Furniture": "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/Specialities/Endodontics.png?tr=w-150,q-60,f-avif",
-            "Conservative Dentistry": "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/Specialities/Conservative_dentistry.png?tr=w-150,q-60,f-avif"
         };
         const categoriesSection = document.getElementById("categories");
         categoriesSection.innerHTML = `
