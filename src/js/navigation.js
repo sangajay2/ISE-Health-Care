@@ -168,28 +168,142 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Add these new product category arrays for comprehensive search
     const surgicalConsumablesProducts = [
-        "Suture", "Instrument Trays", "Local Anaesthetics", "Surgical Handles", 
-        "Panty", "Hemostatic Agents"
+        { 
+            name: "Suture", 
+            image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Suture.png?tr=w-128,q-60,f-avif"
+        },
+        { 
+            name: "Instrument Trays", 
+            image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Instrument_Trays.png?tr=w-128,q-60,f-avif"
+        },
+        { 
+            name: "Local Anaesthetics", 
+            image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Local_Anaesthetics.png?tr=w-128,q-60,f-avif"
+        },
+        { 
+            name: "Surgical Handles", 
+            image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Surgical_Handles.png?tr=w-128,q-60,f-avif"
+        },
+        { 
+            name: "Panty", 
+            image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Panty.png?tr=w-128,q-60,f-avif"
+        },
+        { 
+            name: "Hemostatic Agents", 
+            image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Hemostatic_Agents.png?tr=w-128,q-60,f-avif"
+        }
     ];
 
     const hygieneControlProducts = [
-        "Adult Diaper", "Surgical Gloves", "Examination Gloves", "Underpad",
-        "Latex Examination Gloves", "Gel"
+        { 
+            name: "Adult Diaper",
+            image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Adult_Diaper.png?tr=w-128,q-60,f-avif"
+        },
+        { 
+            name: "Surgical Gloves",
+            image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Surgical_Gloves.png?tr=w-128,q-60,f-avif"
+        },
+        { 
+            name: "Examination Gloves",
+            image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Examination_Gloves.png?tr=w-128,q-60,f-avif"
+        },
+        { 
+            name: "Underpad",
+            image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Underpad.png?tr=w-128,q-60,f-avif"
+        },
+        { 
+            name: "Latex Examination Gloves",
+            image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Latex_Examination_Gloves.png?tr=w-128,q-60,f-avif"
+        },
+        { 
+            name: "Gel",
+            image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Gel.png?tr=w-128,q-60,f-avif"
+        }
     ];
 
     const bandagesWoundProducts = [
-        "Dressing", "Surgical tape", "Bandage", "Gauze swab"
+        { 
+            name: "Dressing",
+            image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Dressing.png?tr=w-128,q-60,f-avif"
+        },
+        { 
+            name: "Surgical tape",
+            image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Surgical_Tape.png?tr=w-128,q-60,f-avif"
+        },
+        { 
+            name: "Bandage",
+            image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Bandage.png?tr=w-128,q-60,f-avif"
+        },
+        { 
+            name: "Gauze swab",
+            image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Gauze_Swab.png?tr=w-128,q-60,f-avif"
+        }
     ];
 
     const cardiologyProducts = [
-        "ECG Machine", "Patient Monitor", "Defibrillator", "Patient Monitor Accessories",
-        "BPL Single Channel ECG Machine", "BPL Three Channel ECG Machine"
+        { 
+            name: "ECG Machine",
+            image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/ECG_Machine.png?tr=w-128,q-60,f-avif"
+        },
+        { 
+            name: "Patient Monitor",
+            image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Patient_Monitor.png?tr=w-128,q-60,f-avif"
+        },
+        { 
+            name: "Defibrillator",
+            image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Defibrillator.png?tr=w-128,q-60,f-avif"
+        },
+        { 
+            name: "Patient Monitor Accessories",
+            image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Patient_Monitor_Accessories.png?tr=w-128,q-60,f-avif"
+        },
+        { 
+            name: "BPL Single Channel ECG Machine",
+            image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/BPL_Single_Channel_ECG.png?tr=w-128,q-60,f-avif"
+        },
+        { 
+            name: "BPL Three Channel ECG Machine",
+            image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/BPL_Three_Channel_ECG.png?tr=w-128,q-60,f-avif"
+        }
     ];
 
     const ophthalmologyProducts = [
-        "Sugra Led Acuity Vision Chart", "Sugra Distance Vision Drum",
-        "Sugra Loose Prism Set", "Sugra Led Vision Chart",
-        "Sugra Trial Lens Set Golden and Silver", "Sugra Prism Bar Set"
+        {
+            name: "Sugra Led Acuity Vision Chart",
+            image: "https://ik.imagekit.io/z6mqjyyzz/media/public/42b22b00e6694debb_Screenshot_2024-11-04_122219-removebg-preview.png?tr=w-150,q-60,f-avif",
+            rating: 3.7,
+            reviews: 7
+        },
+        {
+            name: "Sugra Distance Vision Drum",
+            image: "https://ik.imagekit.io/z6mqjyyzz/media/public/d2ea1bc231e34371b_8.webp?tr=w-150,q-60,f-avif",
+            rating: 4.4,
+            reviews: 4
+        },
+        {
+            name: "Sugra Loose Prism Set",
+            image: "https://ik.imagekit.io/z6mqjyyzz/media/public/8f9d99798b7f4db7b_image.png?tr=w-150,q-60,f-avif",
+            rating: 4.1,
+            reviews: 50
+        },
+        {
+            name: "Sugra Led Vision Chart",
+            image: "https://ik.imagekit.io/z6mqjyyzz/media/public/aac25588a8464ecc9_led-vision-chart-768x879.webp?tr=w-150,q-60,f-avif",
+            rating: 4.9,
+            reviews: 39
+        },
+        {
+            name: "Sugra Trial Lens Set Golden and Silver",
+            image: "https://ik.imagekit.io/z6mqjyyzz/media/public/8e8385af3a654252b_image.png?tr=w-150,q-60,f-avif",
+            rating: 4.5,
+            reviews: 47
+        },
+        {
+            name: "Sugra Prism Bar Set",
+            image: "https://ik.imagekit.io/z6mqjyyzz/media/public/f237ae90243f4842b_51.webp?tr=w-150,q-60,f-avif",
+            rating: 4.9,
+            reviews: 1
+        }
     ];
 
     const nephrologyProducts = [
@@ -762,9 +876,9 @@ document.addEventListener("DOMContentLoaded", () => {
         addProducts(equipmentRespiratoryTypeProducts, 'Equipment', 'respiratory-equipment', 'Respiratory');
         addProducts(surgicalConsumablesProducts, 'Consumables', 'sub', 'Surgical Consumables');
         addProducts(hygieneControlProducts, 'Consumables', 'sub', 'Hygiene Control');
-        addProducts(bandagesWoundProducts, 'Consumables', 'sub', 'Bandages & Wound');
-        addProducts(cardiologyProducts, 'Equipment', 'sub', 'Cardiology');
-        addProducts(ophthalmologyProducts, 'Equipment', 'sub', 'Ophthalmology');
+        addProducts(bandagesWoundProducts.map(p => p.name), 'Consumables', 'sub', 'Bandages & Wound');
+        addProducts(cardiologyProducts.map(p => p.name), 'Equipment', 'sub', 'Cardiology');
+        addProducts(ophthalmologyProducts.map(p => p.name), 'Equipment', 'sub', 'Ophthalmology');
         addProducts(nephrologyProducts.map(p => p.name), 'Nephrology', 'main', 'Nephrology Products');
         addProducts(physiotherapyProducts.map(p => p.name), 'Physiotherapy', 'main', 'Physiotherapy Products');
         addProducts(refurbishedDevicesProducts.map(p => p.name), 'Refurbished Devices', 'main', 'Refurbished Products');

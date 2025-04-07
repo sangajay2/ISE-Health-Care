@@ -2,13 +2,13 @@
     {
         "id": "1",
         "name": "Diagnostics",
-        "image": "https://via.placeholder.com/200x200?text=Diagnostics",
+        "image": "https://etimg.etb2bimg.com/photo/112526425.cms",
         "description": "Medical Diagnostic Equipment & Devices"
     },
     {
         "id": "2",
         "name": "Consumables",
-        "image": "https://via.placeholder.com/200x200?text=Consumables",
+        "image": "https://cdn-eplif.nitrocdn.com/wfvegrjPEPShEqEfUEqBAgAAxqbKSQLL/assets/images/optimized/rev-ffadd5f/wp-content/uploads/2022/10/Room-with-high-stock-levels-of-hospital-equipment.png",
         "description": "Medical Consumables & Disposables",
         "subcategories": [
             {
@@ -43,31 +43,31 @@
     {
         "id": "3",
         "name": "Equipment",    
-        "image": "https://via.placeholder.com/200x200?text=Equipment",
+        "image": "https://alliedusa.net/wp-content/uploads/2022/06/Tips-for-Choosing-Medical-Equipment-For-Your-Practice.jpg.webp",
         "description": "Hospital & Medical Equipment"
     },
     {
         "id": "4",
         "name": "Ophthalmology",
-        "image": "https://via.placeholder.com/200x200?text=Ophthalmology",
+        "image": "https://cdn.castleconnolly.com/dims4/default/fec3343/2147483647/strip/true/crop/1000x563+0+0/resize/840x473!/quality/90/?url=http%3A%2F%2Fcastle-connolly-brightspot.s3.us-east-1.amazonaws.com%2Fe0%2F4e%2Fca13f3ee428b9805eeef5aef9540%2Fpillar-opthamology-01-1200x675.jpg",
         "description": "Eye Care Equipment & Supplies"
     },
     {
         "id": "5",
         "name": "Nephrology",
-        "image": "https://via.placeholder.com/200x200?text=Nephrology",
+        "image": "https://www.omegahospitals.com/_next/image?url=https%3A%2F%2Fomegafilesstore.s3.ap-south-1.amazonaws.com%2Fwebsite%2Fspecializations%2Fnephrology.png&w=3840&q=75",
         "description": "Kidney Care Equipment & Supplies"
     },
     {
         "id": "6",
         "name": "Physiotherapy",
-        "image": "https://via.placeholder.com/200x200?text=Physiotherapy",
+        "image": "https://regencyhealthcare.in/wp-content/uploads/2018/06/How-physiotherapy-can-help-with-pain-relief-and-better-mobility-1-1200x800.png",
         "description": "Physical Therapy Equipment"
     },
     {
         "id": "7",
         "name": "Refurbished Devices",
-        "image": "https://via.placeholder.com/200x200?text=Refurbished",
+        "image": "https://meditechinsights.com/wp-content/uploads/2022/06/Refurbished-Medical-Equipment-Market-Website-New-e1655717061659.jpg",
         "description": "Quality Refurbished Medical Equipment"
     },
     {

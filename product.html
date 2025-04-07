@@ -322,6 +322,35 @@
                 productsHTML += renderProduct({ name, image: phlebotomyImages[index], price: phlebotomyPrices[index] });
             });
             productGrid.innerHTML = productsHTML;
+        } else if(section === "sub" && item === "Bandages & Wound") {
+            const bandagesWoundProducts = [
+                { 
+                    name: "Dressing",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Dressing.png?tr=w-128,q-60,f-avif"
+                },
+                { 
+                    name: "Surgical tape",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Surgical_Tape.png?tr=w-128,q-60,f-avif"
+                },
+                { 
+                    name: "Bandage",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Bandage.png?tr=w-128,q-60,f-avif"
+                },
+                { 
+                    name: "Gauze swab",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Gauze_Swab.png?tr=w-128,q-60,f-avif"
+                }
+            ];
+
+            productDetails.innerHTML = `
+                <h1>Bandages & Wound</h1>
+                <p>Category: sub</p>
+                <hr>
+                <div class="product-grid">
+                    ${bandagesWoundProducts.map(product => renderProduct(product)).join('')}
+                </div>
+                <a href="index.html">Back to Home</a>
+            `;
         } else if(section === "consumables-type" && item === "Stethoscope") {
             const stethoscopes = [
                 { 
@@ -725,6 +754,72 @@
                 <hr>
                 <div class="product-grid">
                     ${refurbishedDevicesProducts.map(product => renderProduct(product)).join('')}
+                </div>
+                <a href="index.html">Back to Home</a>
+            `;
+        } else if(section === "sub" && item === "Cardiology") {
+            const cardiologyProducts = [
+                { 
+                    name: "ECG Machine",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/ECG_Machine.png?tr=w-128,q-60,f-avif"
+                },
+                { 
+                    name: "Patient Monitor",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Patient_Monitor.png?tr=w-128,q-60,f-avif"
+                },
+                { 
+                    name: "Defibrillator",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Defibrillator.png?tr=w-128,q-60,f-avif"
+                },
+                { 
+                    name: "Patient Monitor Accessories",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Patient_Monitor_Accessories.png?tr=w-128,q-60,f-avif"
+                },
+                { 
+                    name: "BPL Single Channel ECG Machine",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/BPL_Single_Channel_ECG.png?tr=w-128,q-60,f-avif"
+                },
+                { 
+                    name: "BPL Three Channel ECG Machine",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/BPL_Three_Channel_ECG.png?tr=w-128,q-60,f-avif"
+                }
+            ];
+
+            productDetails.innerHTML = `
+                <h1>Cardiology</h1>
+                <p>Category: sub</p>
+                <hr>
+                <div class="product-grid">
+                    ${cardiologyProducts.map(product => renderProduct(product)).join('')}
+                </div>
+                <a href="index.html">Back to Home</a>
+            `;
+        } else if(section === "diagnostics-type") {
+            const diagnosticImages = {
+                "Blood bank instrument": "https://mediwise.co.in/wp-content/uploads/2016/10/BCM-20.jpg",
+                "Glucometer Strip": "https://b-arm.com/wp-content/uploads/2021/06/Untitled-design-23.png",
+                "Glucometer": "https://m.media-amazon.com/images/I/61vQYB662CL._SL1500_.jpg",
+                "ELISA plate": "https://www.bosterbio.com/media/magefan_blog/elisa_pipettes.jpg",
+                "Haemoglobin Meter": "https://static1.industrybuying.com/products/lab-supplies/lab-necessities/lab-measuring-instrument/LAB.LAB.824157316_1704180837354.webp",
+                "POCT Analyser": "https://cdnus.globalso.com/pushkangbio/28773568.png",
+                "Urine Analyzer": "https://www.agappe.com/media/catalog/product/u/r/uriskan_plus_2000x.png?auto=webp&format=png&width=960&height=1200&fit=cover",
+                "Monitor": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Monitor_%28medical%29.jpg/375px-Monitor_%28medical%29.jpg",
+                "Electrode": "https://metalcutting.com/wp-content/uploads/2020/04/MCC-swiss-machining-of-medical-electrodes.png",
+                "ELISA reader": "https://halomedicals.com/wp-content/uploads/2020/08/DAS-Elisa-Reader-570x570.jpg"
+            };
+
+            const productToRender = {
+                name: item,
+                image: diagnosticImages[item] || `https://via.placeholder.com/150?text=${encodeURIComponent(item)}`,
+                price: "Price not set"
+            };
+
+            productDetails.innerHTML = `
+                <h1>${item}</h1>
+                <p>Category: ${section}</p>
+                <hr>
+                <div class="product-grid">
+                    ${renderProduct(productToRender)}
                 </div>
                 <a href="index.html">Back to Home</a>
             `;
