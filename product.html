@@ -713,7 +713,6 @@
                 },
                 { 
                     name: "Amkay Flat Lancet",
-                    name: "Sugra Led Vision Chart",
                     image: "https://ik.imagekit.io/z6mqjyyzz/media/public/aac25588a8464ecc9_led-vision-chart-768x879.webp?tr=w-150,q-60,f-avif",
                     rating: 4.9,
                     reviews: 39,
@@ -996,6 +995,92 @@
                 <hr>
                 <div class="product-grid">
                     ${hygieneControlProducts.map(product => renderProduct(product)).join('')}
+                </div>
+                <a href="index.html">Back to Home</a>
+            `;
+        } else if(section === "sub" && item === "Diagnostics") {
+            const diagnosticsProducts = [
+                { 
+                    name: "Stethoscope",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/Stethoscope_e4FmFEP.jpg?tr=w-150,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "Glucometer Strip",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/Glucometer_strip.jpg?tr=w-150,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "Digital Thermometer",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/Digital-Thermometer.jpg?tr=w-150,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "Vein Finder",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/Vein-Finder.jpg?tr=w-150,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "Vaporizer",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/image_qGN3ko6.png?tr=w-150,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "Weighing Scale",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/image_XMRe37M.png?tr=w-150,q-60,f-avif",
+                    price: "Price not set"
+                }
+            ];
+
+            productDetails.innerHTML = `
+                <h1>Diagnostics</h1>
+                <p>Category: ${section}</p>
+                <hr>
+                <div class="product-grid">
+                    ${diagnosticsProducts.map(product => renderProduct(product)).join('')}
+                </div>
+                <a href="index.html">Back to Home</a>
+            `;
+        } else if(section === "sub" && item === "General Surgery") {
+            const generalSurgeryProducts = [
+                { 
+                    name: "Infusion Pump",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/InfusionPumpME600-1.jpg?tr=w-150,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "Surgical Forceps",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/image_W2vLJY7.png?tr=w-150,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "Syringe Pump",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/Syringe-pump.jpg?tr=w-150,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "LED Light",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/led_lights.png?tr=w-150,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "Blood and Fluid Warmer",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/image_xncmqxH.png?tr=w-150,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "Colposcope",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/image_PH1v3q5.png?tr=w-150,q-60,f-avif",
+                    price: "Price not set"
+                }
+            ];
+
+            productDetails.innerHTML = `
+                <h1>General Surgery</h1>
+                <p>Category: ${section}</p>
+                <hr>
+                <div class="product-grid">
+                    ${generalSurgeryProducts.map(product => renderProduct(product)).join('')}
                 </div>
                 <a href="index.html">Back to Home</a>
             `;
