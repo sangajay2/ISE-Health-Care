@@ -144,9 +144,6 @@ document.addEventListener("DOMContentLoaded", () => {
         { id: "respiratory", name: "Respiratory", description: "Explore Respiratory" },
         { id: "diagnostics", name: "Diagnostics", description: "Explore Diagnostics" },
         { id: "generalSurgery", name: "General Surgery", description: "Explore General Surgery" },
-        { id: "dermatology", name: "Dermatology", description: "Explore Dermatology" },
-        { id: "hospitalUtilities", name: "Hospital Utilities", description: "Explore Hospital Utilities" },
-        { id: "gynecologyObstetrics", name: "Gynecology & Obstetrics", description: "Explore Gynecology & Obstetrics" }
     ];
 
     // Add array for Equipment Respiratory Type Products
