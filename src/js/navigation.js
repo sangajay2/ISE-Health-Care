@@ -104,8 +104,6 @@ document.addEventListener("DOMContentLoaded", () => {
         { id: "biochemistry", name: "Biochemistry", description: "Explore Biochemistry" },
         { id: "rapidCard", name: "Rapid Card", description: "Explore Rapid Card" },
         { id: "phlebotomy", name: "Phlebotomy", description: "Explore Phlebotomy" },
-        { id: "diagnosticTestKit", name: "Diagnostic Test Kit", description: "Explore Diagnostic Test Kit" },
-        { id: "equipmentAccessories", name: "Equipment & Accessories", description: "Explore Equipment & Accessories" }
     ];
 
     // Add custom subcategories for Consumables
