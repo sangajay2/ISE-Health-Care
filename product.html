@@ -326,25 +326,29 @@
             const bandagesWoundProducts = [
                 { 
                     name: "Dressing",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Dressing.png?tr=w-128,q-60,f-avif"
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/Dressing_fDE5aok.jpg?tr=w-150,q-60,f-avif",
+                    price: "Price not set"
                 },
                 { 
-                    name: "Surgical tape",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Surgical_Tape.png?tr=w-128,q-60,f-avif"
+                    name: "Surgical Tape",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Surgical-tape.jpg?tr=w-150,q-60,f-avif",
+                    price: "Price not set"
                 },
                 { 
                     name: "Bandage",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Bandage.png?tr=w-128,q-60,f-avif"
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/Bandage_fQzLazH.jpg?tr=w-150,q-60,f-avif",
+                    price: "Price not set"
                 },
                 { 
-                    name: "Gauze swab",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Gauze_Swab.png?tr=w-128,q-60,f-avif"
+                    name: "Gauze Swab",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/Gauze_Swab.jpg?tr=w-150,q-60,f-avif",
+                    price: "Price not set"
                 }
             ];
 
             productDetails.innerHTML = `
                 <h1>Bandages & Wound</h1>
-                <p>Category: sub</p>
+                <p>Category: ${section}</p>
                 <hr>
                 <div class="product-grid">
                     ${bandagesWoundProducts.map(product => renderProduct(product)).join('')}
