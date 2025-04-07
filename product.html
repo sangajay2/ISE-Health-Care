@@ -1084,6 +1084,47 @@
                 </div>
                 <a href="index.html">Back to Home</a>
             `;
+        } else if(section === "dental-products" && item === "Diamond Burs") {
+            const maniBursProducts = [
+                { 
+                    name: "Mani Straight Fissure (SF) Series Regular Shank Diamond Burs",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/diamond-burs_AwaaUZW.png?tr=w-150,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "Mani Taper Fissure (TF) Series Regular Shank Diamond Burs",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/eedb8640bc2a495e9_diamond_burs_fg_tf_1.jpg?tr=w-126,q-60,f-avif"
+                },
+                { 
+                    name: "Mani Ball Round (BR) Series Regular Shank Diamond Burs",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/3e5b803d322d48b6b_diamond_burs_fg_br_1.jpg?tr=w-126,q-60,f-avif"
+                },
+                { 
+                    name: "Mani Taper Round End (TR) Series Regular Shank Diamond Burs",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/cc0d21db7c7d497bb_diamond_burs_fg_tr_1cs.jpg?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "Mani Extra Shape (EX) (Special) Series Regular Shank Diamond Burs",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/f9881c99977746689_diamond_burs_fg_ex_1.jpg?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "Mani Taper Conical End (TC) Series Regular Shank Diamond Burs",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/70b381fe6edb4fda8_diamond_burs_fg_tc_1.jpg?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                }
+            ];
+
+            productDetails.innerHTML = `
+                <h1>Diamond Burs</h1>
+                <p>Category: ${section}</p>
+                <hr>
+                <div class="product-grid">
+                    ${maniBursProducts.map(product => renderProduct(product)).join('')}
+                </div>
+                <a href="index.html">Back to Home</a>
+            `;
         } else {
             // Simulate multiple product items
             const numberOfProducts = 6;
