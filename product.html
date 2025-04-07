@@ -351,6 +351,49 @@
                 </div>
                 <a href="index.html">Back to Home</a>
             `;
+        } else if(section === "sub" && item === "Surgical Consumables") {
+            const surgicalConsumablesProducts = [
+                { 
+                    name: "Suture",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/Suture.jpg?tr=w-150,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "Instrument Trays",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/134.Instrument-Trays_0Tc70Jh.png?tr=w-150,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "Local Anaesthetics",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/119.Local-Anaesthetics_pM3y5ks.png?tr=w-150,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "Surgical Handles",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/122.Surgical-Handles_8izIWkl.png?tr=w-150,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "Panty",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/Panty.jpg?tr=w-150,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "Patient Bibs",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/89.Patient-Bibs_KB2KIoM.png?tr=w-150,q-60,f-avif",
+                    price: "Price not set"
+                }
+            ];
+
+            productDetails.innerHTML = `
+                <h1>Surgical Consumables</h1>
+                <p>Category: ${section}</p>
+                <hr>
+                <div class="product-grid">
+                    ${surgicalConsumablesProducts.map(product => renderProduct(product)).join('')}
+                </div>
+                <a href="index.html">Back to Home</a>
+            `;
         } else if(section === "consumables-type" && item === "Stethoscope") {
             const stethoscopes = [
                 { 
@@ -666,49 +709,6 @@
                 },
                 { 
                     name: "Amkay Flat Lancet",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/dcc40482246549c7a_Plastic_Lancet_round_page-0002.jpg?tr=w-126,q-60,f-avif",
-                    price: "Price not set"
-                },
-                { 
-                    name: "Accu-Chek Softclix Lancet",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/0e56b1ce285e40cfa_41dvio5EjdL._SX679_.jpg?tr=w-800,q-75,f-avif",
-                    price: "Price not set"
-                }
-            ];
-
-            productDetails.innerHTML = `
-                <h1>Lancet</h1>
-                <p>Category: ${section}</p>
-                <hr>
-                <div class="product-grid">
-                    ${lancetProducts.map(product => renderProduct(product)).join('')}
-                </div>
-                <a href="index.html">Back to Home</a>
-            `;
-        } else if (section === "main" && item === "Ophthalmology") {
-            const ophthalmologyProducts = [
-                {
-                    name: "Sugra Led Acuity Vision Chart",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/42b22b00e6694debb_Screenshot_2024-11-04_122219-removebg-preview.png?tr=w-150,q-60,f-avif",
-                    rating: 3.7,
-                    reviews: 7,
-                    price: "Price not set"
-                },
-                {
-                    name: "Sugra Distance Vision Drum",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/d2ea1bc231e34371b_8.webp?tr=w-150,q-60,f-avif",
-                    rating: 4.4,
-                    reviews: 4,
-                    price: "Price not set"
-                },
-                {
-                    name: "Sugra Loose Prism Set",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/8f9d99798b7f4db7b_image.png?tr=w-150,q-60,f-avif",
-                    rating: 4.1,
-                    reviews: 50,
-                    price: "Price not set"
-                },
-                {
                     name: "Sugra Led Vision Chart",
                     image: "https://ik.imagekit.io/z6mqjyyzz/media/public/aac25588a8464ecc9_led-vision-chart-768x879.webp?tr=w-150,q-60,f-avif",
                     rating: 4.9,
