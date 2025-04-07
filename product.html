@@ -1125,6 +1125,49 @@
                 </div>
                 <a href="index.html">Back to Home</a>
             `;
+        } else if(section === "dental-products" && item === "NiTi Rotary Files") {
+            const nitiRotaryProducts = [
+                { 
+                    name: "Neoendo Flex Assorted NiTi Rotary Files",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/e53b72e7435a4d7f8_Flex-file-1-1.png?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "Neoendo S Refills NiTi Rotary Files",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/7696483b9461411ca_Neoendo-s-1.png?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "Neoendo NeoBlue Refills NiTi Rotary Files",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/64d4bfdaa5704675a_Neoblue-1.png?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "Dentsply ProTaper Gold Refills NiTi Rotary Files",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/13e05872a2b5452b9_PROTAPERGRF_1.jpg?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "NT Rainbow S Assorted NiTi Rotary Files",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/70b148fec45d47e78_NT_Rainbow_S_Assorted_NiTi_Rotary_Files_-_25mm.1.webp?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "Neoendo Retreatment NiTi Rotary Files",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/70b148fec45d47e78_NT_Rainbow_S_Assorted_NiTi_Rotary_Files_-_25mm.1.webp?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                }
+            ];
+
+            productDetails.innerHTML = `
+                <h1>NiTi Rotary Files</h1>
+                <p>Category: ${section}</p>
+                <hr>
+                <div class="product-grid">
+                    ${nitiRotaryProducts.map(product => renderProduct(product)).join('')}
+                </div>
+                <a href="index.html">Back to Home</a>
+            `;
         } else {
             // Simulate multiple product items
             const numberOfProducts = 6;
