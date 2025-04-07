@@ -556,6 +556,49 @@
                 productsHTML += renderProduct(prod);
             });
             document.querySelector('.product-grid').innerHTML = productsHTML;
+        } else if(section === "consumables-type" && item === "Temporary Restoratives") {
+            const temporaryRestorativesProducts = [
+                { 
+                    name: "Prevest DenPro Orafil G Temporary Restorative", 
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/cb856716d40842818_prevest_denpro_orafil_g_40g_.jpg?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "Avue Temp Temporary Restorative", 
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/d225f5bc5f5c4f31b_Avuetempweb.jpg?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "Prime Dental Eugenol Temporary Restorative", 
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/3b20f819d3bb4345a_image_kwpqbm9.jpg?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "Ammdent Cavitemp Temporary Restorative", 
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/9b8f5022d4a94180a_ammdent_cavitemp.png?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "SafeEndo Smart Temp Temporary Restorative", 
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/5ab6cdb9bb2d40719_Smart_temp.jpg?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "Prevest DenPro Zinc Oxide Temporary Restorative", 
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/19bf4478773f425d8_Prevest_DenPro_Zinc_Oxide_Temporary_Restorative_-_110G.2.jpeg?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                }
+            ];
+
+            productDetails.innerHTML = `
+                <h1>Temporary Restoratives</h1>
+                <p>Category: ${section}</p>
+                <hr>
+                <div class="product-grid">
+                    ${temporaryRestorativesProducts.map(product => renderProduct(product)).join('')}
+                </div>
+                <a href="index.html">Back to Home</a>
+            `;
         } else if (section === "main" && item === "Ophthalmology") {
             const ophthalmologyProducts = [
                 {
