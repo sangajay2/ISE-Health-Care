@@ -599,6 +599,49 @@
                 </div>
                 <a href="index.html">Back to Home</a>
             `;
+        } else if(section === "consumables-type" && item === "Dental Alginate") {
+            const dentalAlginateProducts = [
+                { 
+                    name: "Zhermack Tropicalgin Dental Alginate",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/be82d85ff0b84ca1b_tropicalgin.jpg?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "Prime Dental Algingum Dental Alginate",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/9ec153f5baf44c198_MBLPILLSCLSDEDJCO247.png?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "DPI Algitex Dental Alginate",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/3346936a13444122b_algitex-1.JPG?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "Prime Dental Prime Chrome Dental Alginate",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/d4d46464fd5841fc8_640x640.jpg?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "Orikam NeoAlgin Dental Alginate",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/cb856716d40842818_prevest_denpro_orafil_g_40g_.jpg?tr=w-800,q-75,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "Brulon Biokalgin Pro Dental Alginate",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/c20f8adc07f54e97b_septodont_plastalgin_chromatic_-_454g.jpg?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                }
+            ];
+
+            productDetails.innerHTML = `
+                <h1>Dental Alginate</h1>
+                <p>Category: ${section}</p>
+                <hr>
+                <div class="product-grid">
+                    ${dentalAlginateProducts.map(product => renderProduct(product)).join('')}
+                </div>
+                <a href="index.html">Back to Home</a>
+            `;
         } else if (section === "main" && item === "Ophthalmology") {
             const ophthalmologyProducts = [
                 {
