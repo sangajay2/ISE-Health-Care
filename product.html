@@ -1304,8 +1304,8 @@
                 </div>
                 <a href="index.html">Back to Home</a>
             `;
-        } else if(section === "dental-procedures" && item === "Composite Restoration") {
-            const compositeRestorationProducts = [
+        } else if(section === "dental-procedures" && item === "GIC Restorations") {
+            const diamondBursProducts = [
                 { 
                     name: "Mani Straight Fissure (SF) Series Regular Shank Diamond Burs",
                     image: "https://ik.imagekit.io/z6mqjyyzz/media/public/b8d07d6d542548d39_mani_sf.png?tr=w-126,q-60,f-avif",
@@ -1318,7 +1318,7 @@
                 },
                 { 
                     name: "Mani Ball Round (BR) Series Regular Shank Diamond Burs",
-                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/3e5b803d322d48b6b_diamond_burs_fg_br_1.jpg?tr=w-126,q-60,f-avif", 
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/3e5b803d322d48b6b_diamond_burs_fg_br_1.jpg?tr=w-126,q-60,f-avif",
                     price: "Price not set"
                 },
                 { 
@@ -1339,11 +1339,11 @@
             ];
 
             productDetails.innerHTML = `
-                <h1>Composite Restoration</h1>
+                <h1>GIC Restorations</h1>
                 <p>Category: ${section}</p>
                 <hr>
                 <div class="product-grid">
-                    ${compositeRestorationProducts.map(product => renderProduct(product)).join('')}
+                    ${diamondBursProducts.map(product => renderProduct(product)).join('')}
                 </div>
                 <a href="index.html">Back to Home</a>
             `;
