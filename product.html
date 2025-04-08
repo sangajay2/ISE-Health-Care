@@ -22,7 +22,8 @@
             overflow: hidden;
         }
         .product-item img {
-            width: 25%; /* reduced further from 50% to 25% */
+            width: 100%; /* Changed from 25% to 100% for better display */
+            max-width: 200px; /* Added max-width for consistency */
             height: auto;
             border-radius: 5px;
             display: block;
@@ -1168,7 +1169,7 @@
                 </div>
                 <a href="index.html">Back to Home</a>
             `;
-        else if(section === "dental-products" && item === "Restorative Glass Ionomer Cements") {
+        } else if(section === "dental-products" && item === "Restorative Glass Ionomer Cements") {
             const restorativeGICProducts = [
                 { 
                     name: "GC Gold Label 2 / Fuji II (Powder-Liquid) Restorative GIC",
@@ -1210,7 +1211,7 @@
                     ${restorativeGICProducts.map(product => renderProduct(product)).join('')}
                 </div>
                 <a href="index.html">Back to Home</a>
-            `;    
+            `;
         } else {
             // Simulate multiple product items
             const numberOfProducts = 6;
