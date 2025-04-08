@@ -1261,6 +1261,49 @@
                 </div>
                 <a href="index.html">Back to Home</a>
             `;
+        } else if(section === "dental-procedures" && item === "Pedodontic Restoration") {
+            const pedodonticRestorationProducts = [
+                { 
+                    name: "Mani Straight Fissure (SF) Series Regular Shank Diamond Burs",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/b8d07d6d542548d39_mani_sf.png?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "Mani Taper Fissure (TF) Series Regular Shank Diamond Burs",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/eedb8640bc2a495e9_diamond_burs_fg_tf_1.jpg?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "Mani Ball Round (BR) Series Regular Shank Diamond Burs",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/3e5b803d322d48b6b_diamond_burs_fg_br_1.jpg?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "GC Gold Label 2 / Fuji II (Powder-Liquid) Restorative GIC",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/befea66f7f9649f8b_MBDDFCCZTEEOED5PAE8Y.jpeg?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "GC Gold Label 9 Extra / Fuji IX Extra (Powder-Liquid) Restorative GIC",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/1923dd73e6d14bbda_gc-extra-big_pack.webp?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                },
+                { 
+                    name: "3M Ketac Molar ART Restorative GIC",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/6a92dcb8fbd64ac6a_MBADT0068.jpeg?tr=w-126,q-60,f-avif",
+                    price: "Price not set"
+                }
+            ];
+
+            productDetails.innerHTML = `
+                <h1>Pedodontic Restoration</h1>
+                <p>Category: ${section}</p>
+                <hr>
+                <div class="product-grid">
+                    ${pedodonticRestorationProducts.map(product => renderProduct(product)).join('')}
+                </div>
+                <a href="index.html">Back to Home</a>
+            `;
         } else {
             // Simulate multiple product items
             const numberOfProducts = 6;
