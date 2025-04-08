@@ -1212,6 +1212,55 @@
                 </div>
                 <a href="index.html">Back to Home</a>
             `;
+        } else if (section === "main" && item === "Ophthalmology") {
+            const ophthalmologyProducts = [
+                {
+                    name: "Sugra Led Acuity Vision Chart",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/42b22b00e6694debb_Screenshot_2024-11-04_122219-removebg-preview.png?tr=w-150,q-60,f-avif",
+                    rating: 3.7,
+                    reviews: 7
+                },
+                {
+                    name: "Sugra Distance Vision Drum",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/d2ea1bc231e34371b_8.webp?tr=w-150,q-60,f-avif",
+                    rating: 4.4,
+                    reviews: 4
+                },
+                {
+                    name: "Sugra Loose Prism Set",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/8f9d99798b7f4db7b_image.png?tr=w-150,q-60,f-avif",
+                    rating: 4.1,
+                    reviews: 50
+                },
+                {
+                    name: "Sugra Led Vision Chart",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/aac25588a8464ecc9_led-vision-chart-768x879.webp?tr=w-150,q-60,f-avif",
+                    rating: 4.9,
+                    reviews: 39
+                },
+                {
+                    name: "Sugra Trial Lens Set Golden and Silver",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/8e8385af3a654252b_image.png?tr=w-150,q-60,f-avif",
+                    rating: 4.5,
+                    reviews: 47
+                },
+                {
+                    name: "Sugra Prism Bar Set",
+                    image: "https://ik.imagekit.io/z6mqjyyzz/media/public/f237ae90243f4842b_51.webp?tr=w-150,q-60,f-avif",
+                    rating: 4.9,
+                    reviews: 1
+                }
+            ];
+
+            productDetails.innerHTML = `
+                <h1>Ophthalmology</h1>
+                <p>Category: ${section}</p>
+                <hr>
+                <div class="product-grid">
+                    ${ophthalmologyProducts.map(product => renderProduct(product)).join('')}
+                </div>
+                <a href="index.html">Back to Home</a>
+            `;
         } else {
             // Simulate multiple product items
             const numberOfProducts = 6;
