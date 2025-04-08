@@ -47,31 +47,31 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             name: "Restorative Glass Ionomer Cements",
             image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/102.Restorative-Glass-Ionomer-Cements_rVgLvkf.png?tr=w-150,q-60,f-avif"
-        },
-        {
-            name: "Calcium Hydroxide Pastes",
-            image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/299.Calcium-Hydroxide-Pastes_8HzCXxU.png?tr=w-150,q-60,f-avif"
-        },
-        {
-            name: "Dental Waxes",
-            image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/24.Dental-Waxes_eqTYkmL.png?tr=w-150,q-60,f-avif"
-        },
-        {
-            name: "Elastomeric Impression Materials",
-            image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/70.Elastomeric-Impression-Materials_inb9kYS.png?tr=w-150,q-60,f-avif"
-        },
-        {
-            name: "High-Speed Handpieces",
-            image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/160.High-Speed-Handpieces_I7ddcRa.png?tr=w-150,q-60,f-avif"
-        },
-        {
-            name: "Dental Autoclaves",
-            image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/168.Dental-Autoclaves_LxJ6hrl.png?tr=w-150,q-60,f-avif"
-        },
-        {
-            name: "Dental Etchants",
-            image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/35.Dental-Etchants_IP7O2Y1.png?tr=w-150,q-60,f-avif"
         }
+        // {
+        //     name: "Calcium Hydroxide Pastes",
+        //     image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/299.Calcium-Hydroxide-Pastes_8HzCXxU.png?tr=w-150,q-60,f-avif"
+        // },
+        // {
+        //     name: "Dental Waxes",
+        //     image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/24.Dental-Waxes_eqTYkmL.png?tr=w-150,q-60,f-avif"
+        // },
+        // {
+        //     name: "Elastomeric Impression Materials",
+        //     image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/70.Elastomeric-Impression-Materials_inb9kYS.png?tr=w-150,q-60,f-avif"
+        // },
+        // {
+        //     name: "High-Speed Handpieces",
+        //     image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/160.High-Speed-Handpieces_I7ddcRa.png?tr=w-150,q-60,f-avif"
+        // },
+        // {
+        //     name: "Dental Autoclaves",
+        //     image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/168.Dental-Autoclaves_LxJ6hrl.png?tr=w-150,q-60,f-avif"
+        // },
+        // {
+        //     name: "Dental Etchants",
+        //     image: "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/NewGenericNames/35.Dental-Etchants_IP7O2Y1.png?tr=w-150,q-60,f-avif"
+        // }
     ];
 
     // Add additional branch arrays for Diagnostics Instrument
