@@ -111,26 +111,6 @@
                     {
                         "name": "GIC Restorations",
                         "image": "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/Procedures/GIC_restorations.png?tr=w-750,q-60,f-avif"
-                    },
-                    {
-                        "name": "Temporary Restorations",
-                        "image": "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/Procedures/Temporary_Restorations.png?tr=w-750,q-60,f-avif"
-                    },
-                    {
-                        "name": "Pedodontic Pulp Treatment",
-                        "image": "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/Procedures/Pedodontic_Pulp_Treatment.png?tr=w-750,q-60,f-avif"
-                    },
-                    {
-                        "name": "Crown & Bridge",
-                        "image": "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/Procedures/Crown__Bridge.png?tr=w-750,q-60,f-avif"
-                    },
-                    {
-                        "name": "Crown Preparation",
-                        "image": "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/Procedures/Crown_Preparation.png?tr=w-750,q-60,f-avif"
-                    },
-                    {
-                        "name": "Amalgam Restoration",
-                        "image": "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/Procedures/Amalgam_Restoration.png"
                     }
                 ]
             }
