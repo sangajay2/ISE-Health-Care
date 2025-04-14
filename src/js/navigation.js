@@ -108,11 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "General Consumable and Disposables",
         "Respiratory Consumables",
         "Diagnostics",
-        "Ophthalmology",
-        "Prosthodontics",
-        "Implantology",
-        "Endodontics",
-        "Hospital Furniture",
+
     ];
 
     // Add custom subcategories for Equipment
@@ -659,11 +655,6 @@ document.addEventListener("DOMContentLoaded", () => {
             "General Consumable and Disposables": "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/General_Consumable_and_Disposables.jpg?tr=w-150,q-60,f-avif",
             "Respiratory Consumables": "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Diagnostics_K7WGiYZ.jpg?tr=w-150,q-60,f-avif",
             "Diagnostics": "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Respiratory_Se3FjVS.jpg?tr=w-150,q-60,f-avif",
-            "Ophthalmology": "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/Specialities/HospitalFurniture.jpg?tr=w-150,q-60,f-avif",
-            "Prosthodontics": "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Ophthalmology_QhotdCG.jpg?tr=w-150,q-60,f-avif",
-            "Implantology": "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Frame_2.png?tr=w-150,q-60,f-avif",
-            "Endodontics": "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/Specialities/Implantology.png?tr=w-150,q-60,f-avif",
-            "Hospital Furniture": "https://ik.imagekit.io/z6mqjyyzz/media/public/default_images/Images/Specialities/Endodontics.png?tr=w-150,q-60,f-avif",
         };
         const categoriesSection = document.getElementById("categories");
         categoriesSection.innerHTML = `
@@ -791,17 +782,25 @@ document.addEventListener("DOMContentLoaded", () => {
         
         // Collect all products with their metadata with normalized text
         function addProducts(products, category, sectionSlug, subcategory = '') {
-            products.forEach(prod => 
-                allProducts.push({ 
-                    name: typeof prod === 'string' ? prod : prod.name,
-                    nameLower: (typeof prod === 'string' ? prod : prod.name).toLowerCase(), 
-                    category: category,
-                    categoryLower: category.toLowerCase(),
-                    subcategory: subcategory,
-                    subcategoryLower: subcategory.toLowerCase(),
-                    sectionSlug: sectionSlug
-                })
-            );
+            products.forEach(product => {
+                if (typeof product === 'string') {
+                    allProducts.push({
+                        name: product,
+                        nameLower: product.toLowerCase(),
+                        category,
+                        subcategory,
+                        sectionSlug
+                    });
+                } else {
+                    allProducts.push({
+                        name: product.name,
+                        nameLower: product.name.toLowerCase(),
+                        category,
+                        subcategory,
+                        sectionSlug
+                    });
+                }
+            });
         }
 
         // Add all product categories
@@ -823,26 +822,31 @@ document.addEventListener("DOMContentLoaded", () => {
         const results = allProducts
             .map(product => {
                 let score = 0;
-                const nameMatch = product.nameLower.includes(query);
-                const categoryMatch = product.categoryLower.includes(query);
-                const subcategoryMatch = product.subcategoryLower.includes(query);
                 
-                // Case-insensitive exact match
+                // Exact match gets highest score
                 if (product.nameLower === query) score += 10;
-                // Partial matches at word boundaries get higher score
-                else if (product.nameLower.split(' ').some(word => word.startsWith(query))) score += 7;
-                // Any partial match in name
-                else if (nameMatch) score += 5;
                 
-                // Category and subcategory matching
-                if (product.categoryLower === query) score += 5;
-                else if (categoryMatch) score += 3;
-                if (product.subcategoryLower === query) score += 4;
-                else if (subcategoryMatch) score += 2;
+                // Contains full query as substring
+                else if (product.nameLower.includes(query)) score += 5;
+                
+                // Individual word matches
+                else {
+                    const productWords = product.nameLower.split(' ');
+                    const queryWords = query.split(' ');
+                    
+                    queryWords.forEach(qWord => {
+                        if (productWords.some(pWord => pWord.includes(qWord))) score += 2;
+                    });
+                }
 
-                // Word boundary matching for category/subcategory
-                if (product.categoryLower.split(' ').some(word => word.startsWith(query))) score += 2;
-                if (product.subcategoryLower.split(' ').some(word => word.startsWith(query))) score += 1;
+                // Category/subcategory bonus
+                if (product.category.toLowerCase().includes(query)) score += 3;
+                if (product.subcategoryLower && product.subcategoryLower.includes(query)) score += 2;
+                
+                // Beginning of word bonus
+                if (product.nameLower.split(' ').some(word => word.startsWith(query))) score += 1;
+                if (product.category.toLowerCase().split(' ').some(word => word.startsWith(query))) score += 1;
+                if (product.subcategoryLower && product.subcategoryLower.split(' ').some(word => word.startsWith(query))) score += 1;
                 
                 return { ...product, score };
             })
