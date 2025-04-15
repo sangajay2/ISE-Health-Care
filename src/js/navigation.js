@@ -767,7 +767,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById("contact-link").addEventListener("click", (e) => {
         e.preventDefault();
-        alert("Contact us at: info@example.com");
+        alert("Contact us at: info@isecard.asia");
     });
 
     // Search functionality
