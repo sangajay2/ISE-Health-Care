@@ -347,9 +347,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     // Override Diagnostics image with the new correct link
                     category.image = "https://etimg.etb2bimg.com/photo/112526425.cms";
                 }
-                if (category.name === "Consumables") {
-                    category.image = "https://cdn-eplif.nitrocdn.com/wfvegrjPEPShEqEfUEqBAgAAxqbKSQLL/assets/images/optimized/rev-ffadd5f/wp-content/uploads/2022/10/Room-with-high-stock-levels-of-hospital-equipment.png";
-                }
                 if (category.name === "Equipment") {
                     category.image = "https://alliedusa.net/wp-content/uploads/2022/06/Tips-for-Choosing-Medical-Equipment-For-Your-Practice.jpg.webp";
                 }
@@ -435,7 +432,7 @@ document.addEventListener("DOMContentLoaded", () => {
             console.error('Error loading categories:', error);
             document.getElementById("category-list").innerHTML = `
                 <div class="error-message">
-                    <h3>Sorry, we couldn’t load the categories</h3>
+                    <h3>Sorry, we couldn't load the categories</h3>
                     <p>Please try refreshing the page</p>
                 </div>
             `;
